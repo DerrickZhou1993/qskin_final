@@ -1,11 +1,11 @@
-# Daren
-Front end project for planner.
+# Homesite
+As the name suggested, this is the homesite for Futurera.
 
 Dev Setup steps:
 
 1. go into app/config/, based on the environment, copy either of these files and rename it to config.js
 
-2. go into app/config/, based on the environment, copy either of this file and rename it to config.js
+2. go into build/, rename index_qa.html to index.html
 
 3. run `npm start`
 
@@ -16,14 +16,14 @@ Deployment steps:
 
 1. run `npm install`
 
-2. launch server with 'node server.js'
+2. run `npm run build`
 
-3. run `npm run build`
+3. delete all files from existing public/ folder, and copy the content of /build into /public
 
-4. delete all files from existing public/ folder, and copy the content of /build into /public
+4. go into app/config/, based on the environment, copy either of this file and rename it to config.js
 
-5. go into app/config/, based on the environment, copy either of this file and rename it to config.js
+5. go into build/, rename index_prod.html to index.html
 
-6. set the env port number: use port 80 for prod, or any other port for other environments(e.g. 3000).
+6. from console, run `node server.js`
 
-7. visit localhost:{port}
+7. visit localhost

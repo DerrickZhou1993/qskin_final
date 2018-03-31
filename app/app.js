@@ -1,12 +1,7 @@
-//require('./stylesheets/app.scss')
-//require('./stylesheets/vendor/bootstrap/css/bootstrap.min.v.3.3.5.css')
-
 //react stuff
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, Router, useRouterHistory, hashHistory } from 'react-router'
-import { requireAuth } from './utils/loginHelpers'
-
+import { Route, Router } from 'react-router'
 import HomePageContainer from './containers/HomePageContainer'
 
 let routes = (

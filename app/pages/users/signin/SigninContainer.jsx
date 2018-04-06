@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-import SigninPage from './SigninPage'
+import SigninForm from './SigninForm'
 
 export default class SigninContainer extends Component {
 	render() {
 		return (
 			<div>
-				<SigninPage/>
+				<SigninForm/>
 			</div>
 		)
 	}

@@ -4,36 +4,41 @@ import { Link } from 'react-router'
 
 export default class SignoutPage extends Component {
 	constructor(props) {
-		super(props);
+		super(props)
 		this.state = {
 			seconds: 3,
 			startCountDown: true,	
 		};
-		this.timer = 0;
-		this.startTimer = this.startTimer.bind(this);
-		this.countDown = this.countDown.bind(this);
+		this.timer = 0
+		this.startTimer = this.startTimer.bind(this)
+		this.countDown = this.countDown.bind(this)
 	}
 
 	startTimer() {
 		if (this.timer === 0) {
-		  this.timer = window.setInterval(this.countDown, 1000);   
+		  this.timer = window.setInterval(this.countDown, 1000)
 		}
 	}
 
 	countDown() {
 		// Remove one second, set state so a re-render happens.
-		let seconds = this.state.seconds - 1;
+		let seconds = this.state.seconds - 1
 		this.setState({
 			seconds: seconds,
 		});
 		// Check if we're at zero.
-		if (seconds === 0) { 
-			window.clearInterval(this.timer);
+		if (seconds === 0) {
+			window.console.log("signing out in SignoutPage.countDown.")
 			this.props.signoutHandler()
+		}
+
+		if (seconds === -1) {
+			window.clearInterval(this.timer)
 		}
 	}
 
 	render() {
+		window.console.log("signing out in SignoutPage.render.")
 		if (this.state.startCountDown) {
 			this.startTimer()
 		}
@@ -45,6 +50,10 @@ export default class SignoutPage extends Component {
 				<Link to='/'>Go back to homepage.</Link>
 			</div>
 		)
+		if (this.state.seconds === -1) {
+			//disable redirection for class 3.
+			//window.location.href = '/'
+		}
 		return signoutPage
 	}
 }

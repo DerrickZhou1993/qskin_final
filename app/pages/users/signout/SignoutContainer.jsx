@@ -16,6 +16,7 @@ class SignoutContainer extends Component {
 	}
 
 	signoutHandler() {
+		window.console.log("signing out in SignoutContainer.signoutHandler.")
 		this.props.dispatch(signout())
 	}
 }

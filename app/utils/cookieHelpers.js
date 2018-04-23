@@ -1,6 +1,6 @@
-export const userIdCookie = "fe_el_id"
-export const emailCookie = "fe_el"
-export const sessionCookie = "fe_sk_el"
+export const USER_ID_COOKIE = 'pj_uid'
+export const EMAIL_COOKIE = 'pj_e'
+export const SESSION_ID_COOKIE = 'pj_ssid'
 
 /* rewrote from http://www.quirksmode.org/js/cookies.html */
 export function readCookie(name) {

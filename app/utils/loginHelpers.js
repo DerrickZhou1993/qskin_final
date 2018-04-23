@@ -1,4 +1,4 @@
-import { readCookie, eraseCookie, userIdCookie, emailCookie, sessionCookie } from './cookieHelpers'
+import { readCookie, eraseCookie, USER_ID_COOKIE, EMAIL_COOKIE, SESSION_ID_COOKIE } from './cookieHelpers'
 
 export function verifyUserLoginState(loginCb, logoutCb) {
 	const { userId, sessionId, email } = getSessionValues()
@@ -17,10 +17,10 @@ export function signoutUser() {
 }
 
 export function getSessionValues() {
-	let email = readCookie(emailCookie)
+	let email = readCookie(EMAIL_COOKIE)
 	return {
-		userId: readCookie(userIdCookie) || '',
-		sessionId: readCookie(sessionCookie) || '',
+		userId: readCookie(USER_ID_COOKIE) || '',
+		sessionId: readCookie(SESSION_ID_COOKIE) || '',
 		email: email === null ? '' : email.replace('%40', '@'),
 	}
 }

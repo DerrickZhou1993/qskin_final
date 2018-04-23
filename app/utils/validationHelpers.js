@@ -1,5 +1,3 @@
-const URL = require('url-parse')
-
 export function validateEmail(email) {
 	//https://stackoverflow.com/questions/46155/validate-email-address-in-javascript
 	//eslint-disable-next-line max-len	

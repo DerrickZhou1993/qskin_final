@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import SigninForm from './SigninForm'
-import { signin } from "../../../actions/userActions"
 
 //7 todos here.
 

@@ -16,9 +16,12 @@
 	text-align: left;
 }
 
-.user-form .checkbox {
-	padding-left: 22px;
-	text-align: left;
+.user-form {
+	.checkbox {
+		//equivalent of .user-form .checkbox without nesting
+		padding-left: 22px;
+		text-align: left;
+	}
 }
 
 .user-form .form-control {
@@ -58,4 +61,10 @@
 
 .user-form .redirect-message {
 	padding-top: 5px;
+}
+
+@media (max-width: 460px) {
+	.user-form {
+		max-width: 200px;
+	}
 }

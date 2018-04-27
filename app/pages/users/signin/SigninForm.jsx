@@ -17,7 +17,7 @@ export default class SigninForm extends Component {
 
 	render() {
 		if (!this.props.userSigninState.signedIn) {
-			return (<div className="text-center">
+			return (<div className="text-center" style={{color:'green'}}>
 				<form className="user-form" id="signinForm" name="signupForm">
 					<div className="long-message">{this.state.errorMessage}</div>
 					<div>
@@ -43,10 +43,12 @@ export default class SigninForm extends Component {
 								disabled={!(this.state.validEmail && this.state.validPassword)} 
 								onClick={this.handleClickSignIn.bind(this)}
 								>
-							<span>Sign in</span>
+							<div>
+								<span style={{color:'red'}}>Sign in</span>
+							</div>
 						</button>
 					</div>
-					<div className="redirect-message">
+					<div id="redirectSignup" className="redirect-message">
 						Don't have an account yet? <Link to="/users/signup">Click to sign up.</Link>
 					</div>
 				</form>

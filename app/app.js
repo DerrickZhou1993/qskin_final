@@ -1,3 +1,5 @@
+require('./stylesheets/vendor/bootstrap/css/bootstrap.min.v.3.3.5.css')
+
 import React from 'react'
 import { render } from 'react-dom'
 import { Route, Router } from 'react-router'
@@ -17,8 +19,7 @@ let store = createStore(root,
 	)
 )
 
-let routes = (
-		<div className="app">
+let routes = (<div className="app">
 			<Provider store={store}>
 				<Router>
 					<Route name="main">

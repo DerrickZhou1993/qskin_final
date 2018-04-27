@@ -1,8 +1,7 @@
+require('../../../stylesheets/pages.users.scss')
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { validateEmail } from '../../../utils/validationHelpers'
-
-//6 todos here.
 
 export default class SigninForm extends Component {
 	constructor(props) {
@@ -17,13 +16,13 @@ export default class SigninForm extends Component {
 	}
 
 	render() {
-		window.console.log(this.props.userSigninState.signedIn)
 		if (!this.props.userSigninState.signedIn) {
-			return (<div>
-				<form id="signinForm" name="signupForm">
-					<div>{this.state.errorMessage}</div>
+			return (<div className="text-center">
+				<form className="user-form" id="signinForm" name="signupForm">
+					<div className="message">{this.state.errorMessage}</div>
 					<div>
-						<input aria-label="email"
+						<input className="form-control form-field-first"
+							aria-label="email"
 							placeholder="Provide your email" 
 							type="email"
 							value={this.state.email}
@@ -31,7 +30,8 @@ export default class SigninForm extends Component {
 							/>
 					</div>
 					<div>
-						<input aria-label="password"
+						<input className="form-control form-field-last"
+							aria-label="password"
 							placeholder="Create a new password" 
 							type="password"
 							value = {this.state.password}
@@ -39,17 +39,17 @@ export default class SigninForm extends Component {
 							/>
 					</div>
 					<div>
-						<button type="submit" 
+						<button className="btn btn-primary btn-block" type="submit" 
 								disabled={!(this.state.validEmail && this.state.validPassword)} 
-								onClick={this.handleClickSignIn.bind(this)} 
-								className="margin-bottom-10 btn col-xs-12 btn-danger">
+								onClick={this.handleClickSignIn.bind(this)}
+								>
 							<span>Sign in</span>
 						</button>
 					</div>
+					<div className="message redirect-message">
+						Don't have an account yet? <Link to="/users/signup">Click to sign up.</Link>
+					</div>
 				</form>
-				<div>
-					Don't have an account yet? <Link to="/user/signup">Click to sign up.</Link>
-				</div>
 			</div>)}
 		return (<div><p>sign in successful</p></div>)
 	}

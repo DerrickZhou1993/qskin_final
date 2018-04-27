@@ -1,3 +1,4 @@
+require('../../../stylesheets/pages.users.scss')
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 import { validateEmail } from '../../../utils/validationHelpers'
@@ -24,79 +25,82 @@ export default class SignupForm extends Component {
 		if (this.props.userSignupState.signedUp) {
 			return (<div><p>sign in successful</p></div>)
 		}
-		return (
-			<div>
-				<form id="signupForm" name="signupForm">
-					<div>{this.state.errorMessage}</div>
-					<div>
-						<input aria-label="firstname"
-							placeholder="Provide a first name" 
-							type="text"
-							value={this.state.firstName}
-							onChange={this.handleChangeFirstName.bind(this)}
-							/>
-					</div>
-					<div>
-						<input aria-label="middle"
-							placeholder="Provide a middle name" 
-							type="text"
-							value={this.state.middleame}
-							onChange={this.handleChangeMiddleName.bind(this)}
-							/>
-					</div>
-					<div>
-						<input aria-label="lastname"
-							placeholder="Provide a last name" 
-							type="text"
-							value={this.state.lastName}
-							onChange={this.handleChangeLastName.bind(this)}
-							/>
-					</div>
-					<div>
-						<input aria-label="email"
-							placeholder="Provide your email" 
-							type="email"
-							value={this.state.email}
-							onChange={this.handleChangeEmail.bind(this)}
-							/>
-					</div>
-					<div>
-						<input aria-label="password"
-							placeholder="Create a new password" 
-							type="password"
-							value={this.state.password}
-							onChange={this.handleChangePassword.bind(this)}
-							/>
-					</div>
-					<div>
-						<div>
-							<input type="checkbox"
-								checked={this.state.consented}
-								onChange={this.handleChangeAgreement.bind(this)}
-								/>
-							<span className="privacy-text">
-								I agree to receive electronic messages from Projek and its affiliates, 
-								including information about our services and offers.
-							</span>
-						</div>
-					</div>
-					<div>
-						<button type="submit"
-							disabled={!(this.state.validEmail && this.state.validPassword 
-										&& this.state.validFirstName && this.state.validLastName)} 
-							onClick={this.handleClickSignup.bind(this)} 
-							>
-							<span>Sign up</span>
-						</button>
-						<div>
-							<p>By clicking "Sign up" above, you agree to our User Agreement and Privacy Policy.</p>
-						</div>
-					</div>
-				</form>
+		return (<div>
+			<form className="user-form text-center" id="signupForm" name="signupForm">
+				<div>{this.state.errorMessage}</div>
 				<div>
-					Already have an account with us? <Link to="/user/signin">Click to sign in.</Link>
+					<input className="form-control form-field-first"
+						aria-label="firstname"
+						placeholder="Provide a first name" 
+						type="text"
+						value={this.state.firstName}
+						onChange={this.handleChangeFirstName.bind(this)}
+						/>
 				</div>
-			</div>)
+				<div>
+					<input className="form-control form-field-between"
+						aria-label="middle"
+						placeholder="Provide a middle name" 
+						type="text"
+						value={this.state.middleame}
+						onChange={this.handleChangeMiddleName.bind(this)}
+						/>
+				</div>
+				<div>
+					<input className="form-control form-field-between"
+						aria-label="lastname"
+						placeholder="Provide a last name" 
+						type="text"
+						value={this.state.lastName}
+						onChange={this.handleChangeLastName.bind(this)}
+						/>
+				</div>
+				<div>
+					<input className="form-control form-field-between"
+						aria-label="email"
+						placeholder="Provide your email" 
+						type="email"
+						value={this.state.email}
+						onChange={this.handleChangeEmail.bind(this)}
+						/>
+				</div>
+				<div>
+					<input className="form-control form-field-last"
+						aria-label="password"
+						placeholder="Create a new password" 
+						type="password"
+						value={this.state.password}
+						onChange={this.handleChangePassword.bind(this)}
+						/>
+				</div>
+				<div className="checkbox">
+					<input
+						type="checkbox"
+						checked={this.state.consented}
+						onChange={this.handleChangeAgreement.bind(this)}
+						/>
+					<span>
+						I agree to receive electronic messages from Projek and its affiliates, 
+						including information about our services and offers.
+					</span>
+				</div>
+				<div>
+					<button className="btn btn-primary btn-block" type="submit" 
+						disabled={!(this.state.validEmail && this.state.validPassword 
+									&& this.state.validFirstName && this.state.validLastName)} 
+						onClick={this.handleClickSignup.bind(this)} 
+						>
+						<span>Sign up</span>
+					</button>
+					<div className="long-message">
+						<p>By clicking "Sign up" above, you agree to our User Agreement and Privacy Policy.</p>
+					</div>
+				</div>
+				<div className="text-center redirect-message">
+					Already have an account? <Link to="/users/signin">Click to sign in.</Link>
+				</div>
+			</form>
+		</div>)
 	}
 
 
@@ -141,7 +145,6 @@ export default class SignupForm extends Component {
 	}
 
 	handleChangeEmail(event) {
-		//window.console.log(event.target.value)
 		this.setState({
 			email: event.target.value,
 		})

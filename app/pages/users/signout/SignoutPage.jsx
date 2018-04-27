@@ -28,7 +28,6 @@ export default class SignoutPage extends Component {
 		});
 		// Check if we're at zero.
 		if (seconds === 0) {
-			window.console.log("signing out in SignoutPage.countDown.")
 			this.props.signoutHandler()
 		}
 
@@ -38,7 +37,6 @@ export default class SignoutPage extends Component {
 	}
 
 	render() {
-		window.console.log("signing out in SignoutPage.render.")
 		if (this.state.startCountDown) {
 			this.startTimer()
 		}

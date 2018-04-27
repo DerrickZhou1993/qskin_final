@@ -7,53 +7,58 @@ import { validateEmail } from '../../../utils/validationHelpers'
 export default class SigninForm extends Component {
 	constructor(props) {
 		super(props)
-		//todo1: add page states here.
-		//State include: email(''), password(''), errorMessage(''), validEmail(false), and validPassword(false). 
-		//Their default values are inside the brackets.
+		this.state = {
+			email: '',
+			password: '',
+			errorMessage: '',
+			validEmail: false,
+			validPassword: false,
+		}
 	}
 
 	render() {
-		//todo6: Change the following codes, so that if this.props.userSigninState.signedIn is true, return a new <div> that shows 
-		//only a <p>sign in successful</p> page. Otherwise, return below codes.
-		return (<div>
-			<form id="signinForm" name="signupForm">
-				<div>{this.state.errorMessage}</div>
+		window.console.log(this.props.userSigninState.signedIn)
+		if (!this.props.userSigninState.signedIn) {
+			return (<div>
+				<form id="signinForm" name="signupForm">
+					<div>{this.state.errorMessage}</div>
+					<div>
+						<input aria-label="email"
+							placeholder="Provide your email" 
+							type="email"
+							value={this.state.email}
+							onChange = {this.handleChangeEmail.bind(this)}
+							/>
+					</div>
+					<div>
+						<input aria-label="password"
+							placeholder="Create a new password" 
+							type="password"
+							value = {this.state.password}
+							onChange = {this.handleChangePassword.bind(this)}
+							/>
+					</div>
+					<div>
+						<button type="submit" 
+								disabled={!(this.state.validEmail && this.state.validPassword)} 
+								onClick={this.handleClickSignIn.bind(this)} 
+								className="margin-bottom-10 btn col-xs-12 btn-danger">
+							<span>Sign in</span>
+						</button>
+					</div>
+				</form>
 				<div>
-					<input aria-label="email"
-						placeholder="Provide your email" 
-						type="email"
-						//todo2: add the value attribute for email field
-						//todo3: add onChange attribute to call the this.handleChangeEmail method with no param
-						/>
+					Don't have an account yet? <Link to="/user/signup">Click to sign up.</Link>
 				</div>
-				<div>
-					<input aria-label="password"
-						placeholder="Create a new password" 
-						type="password"
-						//todo4: add the value attribute for password filed
-						//todo5: add onChange attribute to call the this.handleChangePassword method with no param
-						/>
-				</div>
-				<div>
-					<button type="submit" 
-							disabled={!(this.state.validEmail && this.state.validPassword)} 
-							onClick={this.handleClickSignup.bind(this)} 
-							className="margin-bottom-10 btn col-xs-12 btn-danger">
-						<span>Sign in</span>
-					</button>
-				</div>
-			</form>
-			<div>
-				Don't have an account yet? <Link to="/user/signup">Click to sign up.</Link>
-			</div>
-			</div>)
+			</div>)}
+		return (<div><p>sign in successful</p></div>)
 	}
 
 	handleChangeEmail(event) {
 		this.setState({
 			email: event.target.value,
 		})
-		if (validateEmail(this.state.email)) {
+		if (!validateEmail(event.target.value)) {
 			this.setState({
 				errorMessage: 'Email format error.',
 				validEmail: false,
@@ -70,7 +75,7 @@ export default class SigninForm extends Component {
 		this.setState({
 			password: event.target.value,
 		})
-		if (this.state.password.length === 0) {
+		if (event.target.value.length === 0) {
 			this.setState({
 				errorMessage: 'Password is required',
 				validPassword: false,

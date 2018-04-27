@@ -45,7 +45,8 @@ export default class SignoutPage extends Component {
 		let signoutPage = (
 			<div>
 				<p>You have signed out successfully.</p>
-				<img src={loading}/>
+				<img src={loading}
+					hidden={!this.props.userSigninState.signedIn}/>
 				<br/>
 				<Link to='/'>Go back to homepage.</Link>
 			</div>

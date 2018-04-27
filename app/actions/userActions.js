@@ -11,26 +11,27 @@ export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS'
 export const SIGNIN_ERROR = 'SIGNIN_ERROR'
 export const SIGNOUT_SUCCESS = 'SIGNOUT_SUCCESS'
 
-//5 todos here.
-
 export function signin(email, password) {
 	return dispatch => {
-		//todo1: use axios to post the sign-in request to ums.
-		//The axios' post method takes 3 input: the url, the request body, and request options(where headers belongs to.)
-		//Check the singout() function below for details of usage.
-		
-		//todo2: if the axios's post is successful, dispatch the signinSuccess() function; otherwise dispatch the signinError() function.
-		//the signinSuccess takes 3 parameters: email, userId and sessionId. The userId and sessionId is returned from the call to ums.
-		//the signinError takes 1 parameter: error. This should be the error message that ums returns, such as the combination of 
-		//email and password does not match our record.
+		axios.post(umsApp.baseUrl + umsAPI.signin,
+			{
+				email: email,
+				password: password,
+			})
+		.then(function(res){
+			if (res && res.data && res.data.result) {
+				dispatch(signinSuccess(email, res.data.user_id, res.data.session_id))
+			}
+		}).catch(function(err) {
+			dispatch(signinError(err))
+		})
 	}
 }
 
 function signinSuccess(email, userId, sessionId) {
-	//todo3: create 3 cookies by calling the createCookie method 3 times.
-	//cookie1: key: pj_uid, value: userId
-	//cookie2: key: pj_e, value: email
-	//cookie3: key: pj_ssid, value: sessionId
+	createCookie(EMAIL_COOKIE, email)
+	createCookie(USER_ID_COOKIE, userId)
+	createCookie(SESSION_ID_COOKIE, sessionId)
 	return {
 		type: SIGNIN_SUCCESS,
 	}
@@ -42,15 +43,24 @@ function signinError(error) {
 	}
 }
 
-export function signupHandler(firstName, middleName, lastName, email, password, consented) {
+export function signup(firstName, middleName, lastName, email, password, consented) {
 	return dispatch => {
-		//todo4: use axios to post the sign-up request to ums.
-		//The axios' post method takes 3 input: the url, the request body, and request options(where headers belongs to.)
-		//Check the singout() function below for details of usage.
-		
-		//todo5: if the axios's post is successful, dispatch the signupSuccess() function; otherwise dispatch the signupError() function.
-		//the signupSuccess takes no parameter.
-		//the signupError takes 1 parameter: error. This should be the error message that ums returns, such as the email is already taken.
+		axios.post(umsApp.baseUrl + umsAPI.signup,
+			{
+				email,
+				password,
+				consented,
+				first_name: firstName,
+				last_name: lastName,
+				middle_name: middleName,
+			})
+		.then(function(res){
+			if (res && res.data && res.data.result) {
+				dispatch(signupSuccess())
+			}
+		}).catch(function(err) {
+			dispatch(signupError(err))
+		})
 	}
 }
 

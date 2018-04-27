@@ -1,3 +1,9 @@
+@import "variables";
+
+#signupForm {
+	background-color: $GREY;
+}
+
 .user-form {
 	width: 100%;
 	max-width: 330px;
@@ -5,7 +11,7 @@
 	margin: auto;
 }
 
-.user-form .long-message {
+.user-form >.long-message {
 	padding-left: 3px;
 	text-align: left;
 }
@@ -28,13 +34,16 @@
 }
 
 .user-form .form-field-first {
-	margin-bottom: -1px;
 	border-bottom-right-radius: 0;
 	border-bottom-left-radius: 0;
 }
 
+.user-form input[type="text"], input[type="password"], input[type="email"] {
+	-webkit-box-shadow: none;
+	margin-bottom: -1px;
+}
+
 .user-form .form-field-between {
-	margin-buttom: -1px;
 	border-bottom-right-radius: 0;
 	border-bottom-left-radius: 0;
 	border-top-left-radius: 0;
@@ -43,7 +52,7 @@
 
 .user-form .form-field-last {
 	margin-bottom: 10px;
-	border-top-left-radius: 0;
+	border-top-left-radius: 0; 
 	border-top-right-radius: 0;
 }
 

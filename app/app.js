@@ -1,4 +1,5 @@
 require('./stylesheets/vendor/bootstrap/css/bootstrap.min.v.3.3.5.css')
+require('./stylesheets/app.scss')
 
 import React from 'react'
 import { render } from 'react-dom'

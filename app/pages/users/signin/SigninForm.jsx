@@ -19,7 +19,7 @@ export default class SigninForm extends Component {
 		if (!this.props.userSigninState.signedIn) {
 			return (<div className="text-center">
 				<form className="user-form" id="signinForm" name="signupForm">
-					<div className="message">{this.state.errorMessage}</div>
+					<div className="long-message">{this.state.errorMessage}</div>
 					<div>
 						<input className="form-control form-field-first"
 							aria-label="email"
@@ -46,7 +46,7 @@ export default class SigninForm extends Component {
 							<span>Sign in</span>
 						</button>
 					</div>
-					<div className="message redirect-message">
+					<div className="redirect-message">
 						Don't have an account yet? <Link to="/users/signup">Click to sign up.</Link>
 					</div>
 				</form>

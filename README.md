@@ -1,5 +1,5 @@
-# Homesite
-As the name suggested, this is the homesite for Futurera.
+# Projek homesite
+As the name suggested, this is the homesite for Projek.
 
 Dev Setup steps:
 

@@ -1,5 +1,5 @@
-# Projek homesite
-As the name suggested, this is the homesite for Projek.
+# Projek website
+As the name suggested, this is the website for Projek.
 
 Dev Setup steps:
 

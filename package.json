@@ -1,7 +1,7 @@
 {
-  "name": "Futurera-homesite",
+  "name": "Qskin-website",
   "version": "0.1.0",
-  "description": "Futurera's Homesite",
+  "description": "Qskin's forum website",
   "main": "app/app.js",
   "scripts": {
     "start": "webpack-dev-server --host 0.0.0.0 --port 3000 --hot --progress --colors",
@@ -21,7 +21,6 @@
     "react-addons-css-transition-group": "^15.0.0",
     "react-dom": "^15.0.0",
     "react-flip-move": "^2.4.1",
-    "react-ga": "2.1.2",
     "react-input-range": "^1.0.2",
     "react-mount": "^0.1.3",
     "react-redux": "^4.1.2",
@@ -52,13 +51,12 @@
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.19.0",
     "jsx-loader": "^0.13.2",
-    "node-sass": "^3.4.2",
+    "node-sass": "4.9.3",
     "react-hot-loader": "^1.3.0",
     "redux-devtools": "^3.0.2",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12",
-    "webpack-dev-server": "^1.14.1",
-    "react-ga": "2.1.2"
+    "webpack-dev-server": "^1.14.1"
   }
 }

@@ -13,6 +13,7 @@ import HomePageContainer from './pages/homepage/HomePageContainer'
 import SignupContainer from './pages/users/signup/SignupContainer'
 import SigninContainer from './pages/users/signin/SigninContainer'
 import SignoutContainer from './pages/users/signout/SignoutContainer'
+import AppContainer from './pages/AppContainer'
 
 let store = createStore(root,
 	compose(
@@ -23,7 +24,7 @@ let store = createStore(root,
 let routes = (<div className="app">
 			<Provider store={store}>
 				<Router>
-					<Route name="main">
+					<Route name="main" component={AppContainer}>
 						<Route name="home" path="/" component={HomePageContainer}/>
 						<Route name="home" path="users/signup" component={SignupContainer}/>
 						<Route name="home" path="users/signin" component={SigninContainer}/>

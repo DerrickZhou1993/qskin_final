@@ -3,6 +3,12 @@ The frontend codebase for qskin
 
 Dev Setup steps:
 
-1. run `npm start`
+1. copy /app/config/config.dev.js to /app/config/config.js
 
-2. visit localhost:3000
+2. copy /build/index_qa.html to /build/index.html
+
+3. run `npm i` to install dependencies
+
+4. run `npm start` to start the app
+
+5. visit localhost:3000

@@ -1,6 +1,6 @@
-import { readCookie, eraseCookie } from './cookieHelpers'
+import { readCookie, eraseCookie, USER_ID_COOKIE, EMAIL_COOKIE, SESSION_ID_COOKIE } from './cookieHelpers'
 
-export function authUser(loginCb, logoutCb) {
+export function verifyUserLoginState(loginCb, logoutCb) {
 	const { userId, sessionId, email } = getSessionValues()
 
 	if (!(userId && sessionId && email)) {
@@ -17,10 +17,10 @@ export function signoutUser() {
 }
 
 export function getSessionValues() {
-	let email = readCookie('fe_el')
+	let email = readCookie(EMAIL_COOKIE)
 	return {
-		userId: readCookie('fe_el_id') || '',
-		sessionId: readCookie('fe_sk_el') || '',
+		userId: readCookie(USER_ID_COOKIE) || '',
+		sessionId: readCookie(SESSION_ID_COOKIE) || '',
 		email: email === null ? '' : email.replace('%40', '@'),
 	}
 }

@@ -1,6 +1,6 @@
 import axios from 'axios'
-import { umsApp } from '../config/config'
-import { umsAPI } from '../config/api'
+import { postsApp } from '../config/config'
+import { postsAPI } from '../config/api'
 import { getSessionValues } from '../utils/loginHelpers'
 import { createCookie, eraseCookie, 
 		USER_ID_COOKIE, EMAIL_COOKIE, SESSION_ID_COOKIE } from '../utils/cookieHelpers'
@@ -13,7 +13,7 @@ export const SIGNOUT_SUCCESS = 'SIGNOUT_SUCCESS'
 
 export function signin(email, password) {
 	return dispatch => {
-		axios.post(umsApp.baseUrl + umsAPI.signin,
+		axios.post(postsApp.baseUrl + postsAPI.signin,
 			{
 				email: email,
 				password: password,
@@ -45,7 +45,7 @@ function signinError(error) {
 
 export function signup(firstName, middleName, lastName, email, password, consented) {
 	return dispatch => {
-		axios.post(umsApp.baseUrl + umsAPI.signup,
+		axios.post(postsApp.baseUrl + postsAPI.signup,
 			{
 				email,
 				password,
@@ -80,7 +80,7 @@ export function signout() {
 	return dispatch => {
 		const { userId, sessionId, email } = getSessionValues()
 		if (userId !== null && sessionId !== null && email !== null) {
-			axios.post(umsApp.baseUrl + umsAPI.signout,
+			axios.post(postsApp.baseUrl + postsAPI.signout,
 				{
 					email: email,
 					session_id: sessionId,

@@ -1,6 +1,9 @@
 # qskin website
 The frontend codebase for qskin
 
+# team
+@jamesdeath123
+
 Dev Setup steps:
 
 1. copy app/config/config.dev.js to app/config/config.js

@@ -15,8 +15,6 @@ The frontend codebase for qskin
 
 4. copy build/index_qa.html to build/index.html
 
-5. run `npm i` to install dependencies
+5. run `npm start` to start the app
 
-6. run `npm start` to start the app
-
-7. visit localhost:3000
+6. visit localhost:3000

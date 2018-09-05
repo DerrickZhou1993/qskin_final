@@ -1,10 +1,11 @@
 # qskin website
 The frontend codebase for qskin
 
-# team
-@jamesdeath123
+# Team
+(@jamesdeath123|https://github.com/jamesdeath123)
 
-Dev Setup steps:
+
+# Dev Setup steps:
 
 1. copy app/config/config.dev.js to app/config/config.js
 

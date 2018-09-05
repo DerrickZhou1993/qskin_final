@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const corsFilter = require('cors')
 
 const app = express()
-app.set('port', 81)
+app.set('port', 80)
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))

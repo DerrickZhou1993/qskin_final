@@ -2,7 +2,7 @@
 The frontend codebase for qskin
 
 # Team
-(@jamesdeath123|https://github.com/jamesdeath123)
+[@jamesdeath123](https://github.com/jamesdeath123)
 
 
 # Dev Setup steps:

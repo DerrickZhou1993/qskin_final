@@ -1,6 +1,6 @@
 export const postsApp = {
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'http://ec2-52-55-128-246.compute-1.amazonaws.com:8080/',
 }
 
-export const env = 'dev'
-export const baseUrl = 'http://localhost:3000/#/'
+export const env = 'prod'
+export const baseUrl = 'http://ec2-52-55-128-246.compute-1.amazonaws.com'

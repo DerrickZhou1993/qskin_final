@@ -23,7 +23,7 @@ export default class SignupForm extends Component {
 
 	render() {
 		if (this.props.userSignupState.signedUp) {
-			return (<div><p>sign in successful</p></div>)
+			return (<div><p>sign up successful</p></div>)
 		}
 		return (<div>
 			<form className="user-form text-center" id="signupForm" name="signupForm">

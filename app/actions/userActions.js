@@ -48,6 +48,7 @@ export function signup(firstName, middleName, lastName, email, password, consent
 		axios.post(postsApp.baseUrl + postsAPI.signup,
 			{
 				email,
+				username,
 				password,
 				consented,
 				first_name: firstName,

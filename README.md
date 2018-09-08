@@ -3,9 +3,13 @@ The frontend codebase for qskin
 
 # Team
 [@jamesdeath123](https://github.com/jamesdeath123)
+
 [@dchien1117](https://github.com/dchien1117)
 
 [@drkzhang](https://github.com/drkzhang)
+
+[@DerrickZhou1993](https://github.com/DerrickZhou1993)
+
 
 
 # Dev Setup steps:

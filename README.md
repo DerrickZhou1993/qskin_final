@@ -8,6 +8,7 @@ The frontend codebase for qskin
 [@DerrickZhou1993](https://github.com/DerrickZhou1993)
 [@yuhaolu1994](https://github.com/yuhaolu1994)
 [@johnny](https://github.com/1183591577)
+[@peteryang11](https://github.com/peteryang11)
 
 
 # Dev Setup steps:

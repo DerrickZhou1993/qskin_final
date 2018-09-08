@@ -4,6 +4,8 @@ The frontend codebase for qskin
 # Team
 [@jamesdeath123](https://github.com/jamesdeath123)
 
+[@drkzhang](https://github.com/drkzhang)
+
 
 # Dev Setup steps:
 

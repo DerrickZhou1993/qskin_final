@@ -218,14 +218,15 @@ export default class SignupForm extends Component {
 		let middleName = this.state.middleName
 		let lastName = this.state.lastName
 		let email = this.state.email
+		let username = this.state.username
 		let password = this.state.password
 		let consented = false
 		if (this.state.consented) {
 			consented = true
 		}
 		if (this.state.validEmail && this.state.validPassword 
-					&& this.state.validFirstName && this.state.validLastName) {
-			this.props.signupHandler(firstName, middleName, lastName, email, password, consented)
+					&& this.state.validFirstName && this.state.validLastName && this.state.validUsername) {
+			this.props.signupHandler(firstName, middleName, lastName, email, username, password, consented)
 		}
 	}
 }

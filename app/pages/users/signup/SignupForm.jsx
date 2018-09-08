@@ -12,12 +12,14 @@ export default class SignupForm extends Component {
 			firstName: '',
 			middleName: '',
 			lastName: '',
+			username: '',
 			consented: false,
 			errorMessage: '',
 			validEmail: false,
 			validPassword: false,
 			validFirstName: false,
 			validLastName: false,
+			validUsername: false,
 		}
 	}
 
@@ -62,6 +64,15 @@ export default class SignupForm extends Component {
 						type="email"
 						value={this.state.email}
 						onChange={this.handleChangeEmail.bind(this)}
+						/>
+				</div>
+				<div>
+					<input className="form-control form-field-between"
+						aria-label="username"
+						placeholder="Create a new username" 
+						type="text"
+						value={this.state.username}
+						onChange={this.handleChangeUsername.bind(this)}
 						/>
 				</div>
 				<div>
@@ -157,6 +168,23 @@ export default class SignupForm extends Component {
 			this.setState({
 				errorMessage: '',
 				validEmail: true,
+			})
+		}
+	}
+
+	handleChangeUsername(event) {
+		this.setState({
+			username: event.target.value,
+		})
+		if (event.target.value.length === 0) {
+			this.setState({
+				errorMessage: 'Username is required',
+				validUserame: false,
+			})
+		} else {
+			this.setState({
+				errorMessage: '',
+				validUsername: true,
 			})
 		}
 	}

@@ -43,7 +43,7 @@ function signinError(error) {
 	}
 }
 
-export function signup(firstName, middleName, lastName, email, password, consented) {
+export function signup(firstName, middleName, lastName, email, username, password, consented) {
 	return dispatch => {
 		axios.post(postsApp.baseUrl + postsAPI.signup,
 			{

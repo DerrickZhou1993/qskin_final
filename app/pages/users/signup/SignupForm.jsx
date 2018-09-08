@@ -12,12 +12,14 @@ export default class SignupForm extends Component {
 			firstName: '',
 			middleName: '',
 			lastName: '',
+			username: '',
 			consented: false,
 			errorMessage: '',
 			validEmail: false,
 			validPassword: false,
 			validFirstName: false,
 			validLastName: false,
+			validUsername: false,
 		}
 	}
 
@@ -65,6 +67,15 @@ export default class SignupForm extends Component {
 						/>
 				</div>
 				<div>
+					<input className="form-control form-field-between"
+						aria-label="username"
+						placeholder="Create a new username" 
+						type="text"
+						value={this.state.username}
+						onChange={this.handleChangeUsername.bind(this)}
+						/>
+				</div>
+				<div>
 					<input className="form-control form-field-last"
 						aria-label="password"
 						placeholder="Create a new password" 
@@ -87,7 +98,7 @@ export default class SignupForm extends Component {
 				<div>
 					<button className="btn btn-primary btn-block" type="submit" 
 						disabled={!(this.state.validEmail && this.state.validPassword 
-									&& this.state.validFirstName && this.state.validLastName)} 
+									&& this.state.validFirstName && this.state.validLastName && this.state.validUsername)} 
 						onClick={this.handleClickSignup.bind(this)} 
 						>
 						<span>Sign up</span>
@@ -161,6 +172,23 @@ export default class SignupForm extends Component {
 		}
 	}
 
+	handleChangeUsername(event) {
+		this.setState({
+			username: event.target.value,
+		})
+		if (event.target.value.length === 0) {
+			this.setState({
+				errorMessage: 'Username is required',
+				validUserame: false,
+			})
+		} else {
+			this.setState({
+				errorMessage: '',
+				validUsername: true,
+			})
+		}
+	}
+
 	handleChangePassword(event) {
 		this.setState({
 			password: event.target.value,
@@ -190,14 +218,15 @@ export default class SignupForm extends Component {
 		let middleName = this.state.middleName
 		let lastName = this.state.lastName
 		let email = this.state.email
+		let username = this.state.username
 		let password = this.state.password
 		let consented = false
 		if (this.state.consented) {
 			consented = true
 		}
 		if (this.state.validEmail && this.state.validPassword 
-					&& this.state.validFirstName && this.state.validLastName) {
-			this.props.signupHandler(firstName, middleName, lastName, email, password, consented)
+					&& this.state.validFirstName && this.state.validLastName && this.state.validUsername) {
+			this.props.signupHandler(firstName, middleName, lastName, email, username, password, consented)
 		}
 	}
 }

@@ -15,8 +15,8 @@ class SignupContainer extends Component {
 		)
 	}
 
-	signupHandler(firstName, middleName, lastName, email, password, consented) {
-		this.props.dispatch(signup(firstName, middleName, lastName, email, password, consented))
+	signupHandler(firstName, middleName, lastName, email, username, password, consented) {
+		this.props.dispatch(signup(firstName, middleName, lastName, email, username, password, consented))
 	}
 }
 

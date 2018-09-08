@@ -98,7 +98,7 @@ export default class SignupForm extends Component {
 				<div>
 					<button className="btn btn-primary btn-block" type="submit" 
 						disabled={!(this.state.validEmail && this.state.validPassword 
-									&& this.state.validFirstName && this.state.validLastName)} 
+									&& this.state.validFirstName && this.state.validLastName && this.state.validUserame)} 
 						onClick={this.handleClickSignup.bind(this)} 
 						>
 						<span>Sign up</span>

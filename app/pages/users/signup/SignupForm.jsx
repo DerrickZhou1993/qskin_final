@@ -179,7 +179,7 @@ export default class SignupForm extends Component {
 		if (event.target.value.length === 0) {
 			this.setState({
 				errorMessage: 'Username is required',
-				validUserame: false,
+				validUsername: false,
 			})
 		} else {
 			this.setState({

@@ -1,7 +1,7 @@
 import { SIGNIN_SUCCESS, SIGNOUT_SUCCESS } from '../actions/userActions'
 
 export default (state = {
-	signedIn: false,
+	signedIn: true,
 	signinMsg: '',
 }, action) => {
 	switch (action.type) {

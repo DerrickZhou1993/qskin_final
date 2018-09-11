@@ -12,11 +12,10 @@ import HomePageContainer from './pages/homepage/HomePageContainer'
 import SignupContainer from './pages/users/signup/SignupContainer'
 import SigninContainer from './pages/users/signin/SigninContainer'
 import SignoutContainer from './pages/users/signout/SignoutContainer'
+import ProfileContainer from './pages/users/profile/ProfileContainer'
 import AppContainer from './pages/AppContainer'
 import { env } from './config/config'
-
 let appHistory = null
-
 if (env === 'dev') {
 	appHistory = hashHistory
 } else {
@@ -36,7 +35,9 @@ let routes = (<div className="app">
 						<Route name="home" path="users/signup" component={SignupContainer}/>
 						<Route name="home" path="users/signin" component={SigninContainer}/>
 						<Route name="home" path="users/signout" component={SignoutContainer}/>
+						<Route name="home" path="users/me" component={ProfileContainer}/>
 					</Route>
+				
 				</Router>
 			</Provider>
 		</div>

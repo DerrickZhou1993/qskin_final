@@ -1,24 +1,22 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router'
+import { Link } from 'react-router'
 
 export default class UserProfileForm extends Component {
   constructor(props) {
     super(props)
-    const user = this.props.userSigninState.user
     this.state = {
-      user: user,
       errorMessage: '',
-      validFirstName: false,
-      validLastName: false,
-      validUsername: false,
+      validFirstName: true,
+      validLastName: true,
+      validUsername: true,
     }
   }
 
   render() {
-    const user = this.state.user || {}
-
-    if (!this.props.userSigninState.signedIn) {
-      return (<Redirect to='users/signin' />)
+    if (this.props.userSigninState.signedIn) {
+      return (<div id="redirectSignin" className="user-form text-center">
+        Don't sign in yet? <Link to="/users/signin">Click to sign in.</Link>
+      </div>)
     }
 
     return (<div>
@@ -29,8 +27,7 @@ export default class UserProfileForm extends Component {
             aria-label="firstname"
             placeholder="Provide a first name"
             type="text"
-            value={user.firstName}
-            onChange={this.handleChangeFirstName.bind(this)}
+            value="firstName"
             />
         </div>
         <div>
@@ -38,8 +35,7 @@ export default class UserProfileForm extends Component {
             aria-label="lastname"
             placeholder="Provide a last name"
             type="text"
-            value={user.lastName}
-            onChange={this.handleChangeLastName.bind(this)}
+            value="lastName"
             />
         </div>
         <div>
@@ -47,14 +43,12 @@ export default class UserProfileForm extends Component {
             aria-label="username"
             placeholder="Create a new username"
             type="text"
-            value={user.username}
-            onChange={this.handleChangeUsername.bind(this)}
+            value="userName"
             />
         </div>
         <div>
           <button className="btn btn-primary btn-block" type="submit"
             disabled={!(this.state.validFirstName && this.state.validLastName && this.state.validUsername)} 
-            onClick={this.handleClickSaveProfile.bind(this)} 
             >
             <span>Save Profile</span>
           </button>

@@ -37,7 +37,6 @@ let routes = (<div className="app">
 						<Route name="home" path="users/signout" component={SignoutContainer}/>
 						<Route name="home" path="users/me" component={ProfileContainer}/>
 					</Route>
-				
 				</Router>
 			</Provider>
 		</div>

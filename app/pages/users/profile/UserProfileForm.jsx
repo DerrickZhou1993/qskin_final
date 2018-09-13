@@ -6,6 +6,9 @@ export default class UserProfileForm extends Component {
     super(props)
     this.state = {
       errorMessage: '',
+      firstName: 'firstName',
+      lastName: 'lastName',
+      username: 'userName',
       validFirstName: true,
       validLastName: true,
       validUsername: true,
@@ -13,7 +16,7 @@ export default class UserProfileForm extends Component {
   }
 
   render() {
-    if (!this.props.userSigninState.signedIn) {
+    if (this.props.userSigninState.signedIn) {
       return (<div id="redirectSignin" className="user-form text-center">
         Don't sign in yet? <Link to="/users/signin">Click to sign in.</Link>
       </div>)
@@ -27,7 +30,8 @@ export default class UserProfileForm extends Component {
             aria-label="firstname"
             placeholder="Provide a first name"
             type="text"
-            value="firstName"
+            value={this.state.firstName}
+            onChange={this.handleChangeFirstName.bind(this)}
             />
         </div>
         <div>
@@ -35,7 +39,8 @@ export default class UserProfileForm extends Component {
             aria-label="lastname"
             placeholder="Provide a last name"
             type="text"
-            value="lastName"
+            value={this.state.lastName}
+            onChange={this.handleChangeLastName.bind(this)}
             />
         </div>
         <div>
@@ -43,7 +48,8 @@ export default class UserProfileForm extends Component {
             aria-label="username"
             placeholder="Create a new username"
             type="text"
-            value="userName"
+            value={this.state.username}
+            onChange={this.handleChangeUserName.bind(this)}
             />
         </div>
         <div>
@@ -55,5 +61,56 @@ export default class UserProfileForm extends Component {
         </div>
       </form>
     </div>)
+  }
+  
+  handleChangeFirstName(event) {
+    this.setState({
+      firstName: event.target.value,
+    })
+    if (event.target.value.length === 0) {
+      this.setState({
+        errorMessage: 'First name is required',
+        validFirstName: false,
+      })
+    } else {
+      this.setState({
+        errorMessage: '',
+        validFirstName: true,
+      })
+    }
+  }
+
+  handleChangeLastName(event) {
+    this.setState({
+      lastName: event.target.value,
+    })
+    if (event.target.value.length === 0) {
+      this.setState({
+        errorMessage: 'Last name is required',
+        validLastName: false,
+      })
+    } else {
+      this.setState({
+        errorMessage: '',
+        validLastName: true,
+      })
+    }
+  }
+
+  handleChangeUserName(event) {
+    this.setState({
+      username: event.target.value,
+    })
+    if (event.target.value.length === 0) {
+      this.setState({
+        errorMessage: 'User name is required',
+        validUsername: false,
+      })
+    } else {
+      this.setState({
+        errorMessage: '',
+        validUsername: true,
+      })
+    }
   }
 }

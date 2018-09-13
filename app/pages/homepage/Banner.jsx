@@ -10,6 +10,7 @@ export default class Banner extends Component {
                 <p>You have not currently signed in.</p>
                 <p>Please<a href="/users/signin">sign in from here</a>.</p>
             </div>
+
 		</div>)
 	}
 }

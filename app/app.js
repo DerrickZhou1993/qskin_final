@@ -3,27 +3,34 @@ require('./stylesheets/app.scss')
 
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, Router } from 'react-router'
+import { Route, Router, hashHistory, browserHistory } from 'react-router'
 import { Provider } from 'react-redux'
-import { applyMiddleware, compose } from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
-import root from './reducers'
-import { createStore } from 'redux'
+import reducer from './reducers'
 import HomePageContainer from './pages/homepage/HomePageContainer'
 import SignupContainer from './pages/users/signup/SignupContainer'
 import SigninContainer from './pages/users/signin/SigninContainer'
 import SignoutContainer from './pages/users/signout/SignoutContainer'
 import AppContainer from './pages/AppContainer'
+import { env } from './config/config'
 
-let store = createStore(root,
+let appHistory = null
+
+if (env === 'dev') {
+	appHistory = hashHistory
+} else {
+	appHistory = browserHistory
+}
+let store = createStore(reducer,
 	compose(
-		applyMiddleware(thunk),
+		applyMiddleware(thunk)
 	)
 )
 
 let routes = (<div className="app">
 			<Provider store={store}>
-				<Router>
+				<Router history={appHistory}>
 					<Route name="main" component={AppContainer}>
 						<Route name="home" path="/" component={HomePageContainer}/>
 						<Route name="home" path="users/signup" component={SignupContainer}/>

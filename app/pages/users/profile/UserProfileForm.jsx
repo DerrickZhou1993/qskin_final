@@ -8,7 +8,7 @@ export default class UserProfileForm extends Component {
       errorMessage: '',
       firstName: 'firstName',
       lastName: 'lastName',
-      username: 'userName',
+      username: 'username',
       validFirstName: true,
       validLastName: true,
       validUsername: true,
@@ -16,7 +16,7 @@ export default class UserProfileForm extends Component {
   }
 
   render() {
-    if (this.props.userSigninState.signedIn) {
+    if (!this.props.userSigninState.signedIn) {
       return (<div id="redirectSignin" className="user-form text-center">
         Don't sign in yet? <Link to="/users/signin">Click to sign in.</Link>
       </div>)
@@ -46,10 +46,10 @@ export default class UserProfileForm extends Component {
         <div>
           <input className="form-control form-field-first"
             aria-label="username"
-            placeholder="Create a new username"
+            placeholder="Provide a new username"
             type="text"
             value={this.state.username}
-            onChange={this.handleChangeUserName.bind(this)}
+            onChange={this.handleChangeUsername.bind(this)}
             />
         </div>
         <div>
@@ -97,13 +97,13 @@ export default class UserProfileForm extends Component {
     }
   }
 
-  handleChangeUserName(event) {
+  handleChangeUsername(event) {
     this.setState({
       username: event.target.value,
     })
     if (event.target.value.length === 0) {
       this.setState({
-        errorMessage: 'User name is required',
+        errorMessage: 'Username is required',
         validUsername: false,
       })
     } else {

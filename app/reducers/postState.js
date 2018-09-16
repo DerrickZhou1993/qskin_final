@@ -1,4 +1,4 @@
-import {CREATE_POST_SUCCESSFUL, CREATE_POST_FAILED} from '../actions/postActions'
+import { CREATE_POST_SUCCESSFUL, CREATE_POST_FAILED } from '../actions/postActions'
 
 export default (state = {
 	success: false,

@@ -18,7 +18,7 @@ export default class UserProfileForm extends Component {
   render() {
     if (!this.props.userSigninState.signedIn) {
       return (<div id="redirectSignin" className="user-form text-center">
-        Don't sign in yet? <Link to="/users/signin">Click to sign in.</Link>
+        Haven't signed in yet? <Link to="/users/signin">Click to sign in.</Link>
       </div>)
     }
 

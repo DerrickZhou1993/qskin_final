@@ -15,7 +15,6 @@ import SignoutContainer from './pages/users/signout/SignoutContainer'
 import ProfileContainer from './pages/users/profile/ProfileContainer'
 import AppContainer from './pages/AppContainer'
 import { env } from './config/config'
-import ProfileContainer from './pages/users/profile/ProfileContainer'
 
 let appHistory = null
 if (env === 'dev') {

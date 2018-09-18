@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Post from './Post';
+import Post from './Post'
 
-const avartar = "../../assets/catAvartar.png";
+import avartar from '../../assets/catAvartar.png'
 export default class PostsList extends Component {
 
 
@@ -10,7 +10,7 @@ export default class PostsList extends Component {
 		const posts = [
 			{ id: 1, title: 'Title1', content: 'Content1', userName: 'User1', userAvatar: avartar, time: 'Time1', photos:[], likeCount: 10, replyCount:10},
 			{ id: 2, title: 'Title2', content: 'Content2', userName: 'User2', userAvatar: avartar, time: 'Time2', photos:[], likeCount: 10, replyCount:10},
-			{ id: 3, title: 'Title3', content: 'Content3', userName: 'User3', userAvatar: avartar, time: 'Time3', photos:[], likeCount: 10, replyCount:10}];
+			{ id: 3, title: 'Title3', content: 'Content3', userName: 'User3', userAvatar: avartar, time: 'Time3', photos:[], likeCount: 10, replyCount:10}]
 		
 		return (<div className="container">
 

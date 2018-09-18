@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import '../../stylesheets/post.scss';
+import React, { Component } from 'react'
+require ('../../stylesheets/post.scss')
 
-const likeURL = '../../assets/icons/Like.png';
-const commentURL = '../../assets/icons/Comment.png';
-const bookmarkURL = '../../assets/icons/Bookmark.png';
+import likeURL from '../../assets/icons/Like.png'
+import commentURL from '../../assets/icons/Comment.png'
+import bookmarkURL from '../../assets/icons/Bookmark.png'
 
 
 
@@ -23,7 +23,7 @@ export default class Post extends Component {
 						</div>
 					</div>	
 					<div className = "authorInfo">
-						<div> <img src={this.props.userAvatar} /> </div>
+						<div> <img src={this.props.userAvatar} className="user-avatar" /> </div>
 						<div> {this.props.userName} </div>
 						<div> {this.props.time} </div>
 					</div>
@@ -32,10 +32,10 @@ export default class Post extends Component {
 					<div> {this.props.phtotos} </div>
 
 					<div className="interaction">
-						<img src={likeURL} />
-						<img src={commentURL} />
+						<img src={likeURL} className="like-btn" />
+						<img src={commentURL} className="comment-btn" />
 						<div> {this.props.likeCount} </div>
-						<img src={bookmarkURL} />
+						<img src={bookmarkURL} className="reply-btn" />
 						<div> {this.props.replyCount} </div>
 					</div>
 				</div>)

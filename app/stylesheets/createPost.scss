@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+#post-content-input {
+    height: 100px;
+}
+
+.btn {
+     background-color: silver;
+}
+
+#end-page {
+    background-color: silver;
+    text-align: middle;
+    margin-left: 0;
+    margin-right: 0;
+    color: black;
+}
+
+#send-post {
+    margin-left: left;
+    margin-right: 0;
+    float: right;
+    padding-bottom: 0;
+    padding-top: 0;
+}

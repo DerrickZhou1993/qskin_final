@@ -3,5 +3,5 @@ export const postsAPI = {
 	signin: 'users/signin',
 	signout: 'users/signout',
 	getProfile: 'users',
-	createPost: 'posts/new',
+	createPost: 'new',
 }

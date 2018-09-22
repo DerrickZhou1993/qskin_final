@@ -15,6 +15,7 @@ import SignoutContainer from './pages/users/signout/SignoutContainer'
 import ProfileContainer from './pages/users/profile/ProfileContainer'
 import AppContainer from './pages/AppContainer'
 import { env } from './config/config'
+import PostsContainer from './pages/posts/PostsContainer'
 
 let appHistory = null
 if (env === 'dev') {
@@ -38,6 +39,7 @@ let routes = (<div className="app">
 						<Route name="home" path="users/signout" component={SignoutContainer}/>
 						<Route name="home" path="users/me" component={ProfileContainer}/>
 						<Route name="profile" path="/users/me" component={ProfileContainer}/>
+						<Route name="posts" path="/posts/new" component={PostsContainer} />
 					</Route>
 				</Router>
 			</Provider>

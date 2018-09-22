@@ -1,5 +1,5 @@
 export const postsApp = {
-  baseUrl: 'http://localhost:8080/',
+  baseUrl: 'http://localhost:8080/posts/',
 }
 
 export const env = 'dev'

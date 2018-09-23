@@ -4,5 +4,5 @@ export const postsAPI = {
 	signout: 'users/signout',
 	getProfile: 'users',
 	createPost: 'new',
-	uploadPhoto: 'photo/upload',
+	uploadPhotos: 'photo/upload',
 }

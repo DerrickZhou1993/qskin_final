@@ -1,0 +1,23 @@
+import { UPLOAD_FILES_SUCCESSFULSFUL, UPLOAD_FILES_FAILED } from '../actions/postActions'
+
+export default (state = {
+	success: false,
+	message: '',
+}, action) => {
+	switch (action.type) {
+		case UPLOAD_FILES_SUCCESSFULSFUL: {
+			return Object.assign({}, state, {
+				success: true,
+				message: 'Files are uploaded.',
+			})
+		}
+		case UPLOAD_FILES_FAILED: {
+			return Object.assign({}, state, {
+				success: false,
+				message: 'Unable to upload files. Please try again later.',
+			})
+		}
+		default:
+			return state
+	}
+}

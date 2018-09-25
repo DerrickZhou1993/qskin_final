@@ -3,6 +3,7 @@ import picture from '../../assets/picture.png'
 import send from '../../assets/send.png'
 import '../../stylesheets/createPost.scss'
 import { Link } from 'react-router'
+import FormData from 'form-data'
 
 
 export default class CreatePost extends Component {
@@ -56,7 +57,11 @@ export default class CreatePost extends Component {
 	handleChangeFiles(event) {
 		event.preventDefault()
 		if (event.target.files.length !== 0) {
-			this.props.uploadFilesHandler(event.target.files)
+			const files = new FormData()
+			for (let i = 0; i < event.target.files.length; i++) {
+				files.append("files", event.target.files[i])
+			}
+			this.props.uploadFilesHandler(files)
 		}
 	}
 }

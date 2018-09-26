@@ -42,7 +42,7 @@ export function uploadFiles(files) {
         axios.post(postsApp.baseUrl + postsAPI.uploadPhotos, files)
 		.then(function(res){
 			if (res && res.data && res.data.result) {
-				dispatch(uploadSuccess())
+				dispatch(uploadSuccess(res.data.filepath))
 			}
 		}).catch(function(err) {
 			dispatch(uploadFail(err))
@@ -50,9 +50,10 @@ export function uploadFiles(files) {
     }
 }
 
-function uploadSuccess() {
+function uploadSuccess(filepath) {
 	return {
 		type: UPLOAD_FILES_SUCCESSFUL,
+		filepath: filepath,
 	}
 }
 

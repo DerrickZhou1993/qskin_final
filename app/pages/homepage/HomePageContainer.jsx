@@ -14,6 +14,7 @@ class HomePageContainer extends Component {
 				<CreatePost
 					userSigninState = {this.props.userSigninState}
 					uploadFilesHandler = {this.uploadFilesHandler.bind(this)}
+					filesUploadState = {this.props.filesUploadState}
 				/>
 				<PostsList/>
 			</div>
@@ -28,6 +29,7 @@ class HomePageContainer extends Component {
 function select(state) {
 	return {
 		userSigninState: state.userSigninState,
+		filesUploadState: state.filesUploadState,
 	}
 }
 

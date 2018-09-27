@@ -31,7 +31,7 @@ export default class CreatePost extends Component {
 				<div className="col-lg-9 col-md-9">
 					<p id="end-page">
 						<input type="file"
-							accept="image/jpeg, image/png, image/jpeg"
+							accept="image/jpg, image/png, image/jpeg"
 							multiple
 							onChange={this.handleChangeFiles.bind(this)}
 						/>

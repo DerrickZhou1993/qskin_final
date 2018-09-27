@@ -6,7 +6,7 @@ import HomeButton from './HomeButton';
 
 	render() {
 		return (<div className="container">
-            <HomeButton/>
+			<HomeButton/>
 			<UserProfileButton userSigninState = {this.props.userSigninState}/>
 		</div>)
 	}

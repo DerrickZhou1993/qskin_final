@@ -5,4 +5,5 @@ export const postsAPI = {
 	getProfile: 'users',
 	createPost: 'new',
 	uploadPhotos: 'files/upload',
+	listposts: 'posts/list',
 }

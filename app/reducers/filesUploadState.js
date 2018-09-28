@@ -1,4 +1,4 @@
-import { UPLOAD_FILES_SUCCESSFULSFUL, UPLOAD_FILES_FAILED } from '../actions/postActions'
+import { UPLOAD_FILES_SUCCESSFUL, UPLOAD_FILES_FAILED } from '../actions/postActions'
 
 export default (state = {
 	success: false,
@@ -6,7 +6,7 @@ export default (state = {
 	filepath: [],
 }, action) => {
 	switch (action.type) {
-		case UPLOAD_FILES_SUCCESSFULSFUL: {
+		case UPLOAD_FILES_SUCCESSFUL: {
 			return Object.assign({}, state, {
 				success: true,
 				message: 'Files are uploaded.',

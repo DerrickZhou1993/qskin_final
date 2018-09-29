@@ -12,6 +12,7 @@ class PostsContainer extends Component {
 					uploadFilesHandler = {this.uploadFilesHandler.bind(this)}
 					filesUploadState = {this.props.filesUploadState}
 					createPostHandler = {this.createPostHandler.bind(this)}
+					postState = {this.props.postState}
 				/>
 			</div>
 		)
@@ -30,6 +31,7 @@ function select(state) {
 	return {
 		userSigninState: state.userSigninState,
 		filesUploadState: state.filesUploadState,
+		postState: state.postState,
 	}
 }
 

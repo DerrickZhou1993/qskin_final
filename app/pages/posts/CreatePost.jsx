@@ -88,10 +88,6 @@ export default class CreatePost extends Component {
 				files.append("files", event.target.files[i])
 			}
 			this.props.uploadFilesHandler(files)
-		} else {
-			this.setState({
-				numberOfFiles: '',
-			})
 		}
 	}
 

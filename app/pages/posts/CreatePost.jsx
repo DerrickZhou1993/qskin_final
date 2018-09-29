@@ -30,14 +30,15 @@ export default class CreatePost extends Component {
 				</div>
 				<div className="col-lg-9 col-md-9">
 					<p id="end-page">
-						<input type="file"
-							accept="image/jpg, image/png, image/jpeg"
-							multiple
-							onChange={this.handleChangeFiles.bind(this)}
-						/>
-						<button className="btn" id="picture-button">
+						<label className="btn" id="picture-button" >
+							<input type="file"
+								accept="image/jpg, image/png, image/jpeg"
+								multiple
+								onChange={this.handleChangeFiles.bind(this)}
+							/>
 							<img src={picture} className="add-picture-btn" />
-						</button>Add photos
+							Add photos
+						</label>
 						<button className="btn" id="send-post">
 							<img src={send} className="send-btn" />
 						</button>

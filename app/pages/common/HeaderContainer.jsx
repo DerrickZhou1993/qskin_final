@@ -2,12 +2,14 @@ import React, { Component } from 'react'
 import UserProfileButton from '../users/profile/UserProfileButton'
 import { connect } from 'react-redux'
 import HomeButton from './HomeButton';
+import "../../stylesheets/headerContainer.scss"
+
 class HeaderContainer extends Component {
 
 	render() {
 		return (<div className="container">
-			<HomeButton/>
 			<UserProfileButton userSigninState = {this.props.userSigninState}/>
+			<HomeButton/>
 		</div>)
 	}
 }

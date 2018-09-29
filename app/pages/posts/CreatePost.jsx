@@ -134,7 +134,7 @@ export default class CreatePost extends Component {
 		let title = this.state.title
 		let content = this.state.content
 		let filepath = []
-		let userId = 'abc123'
+		let userId = this.state.userId
 		if (this.state.numberOfFiles !== '' && this.props.filesUploadState.success) {
 			filepath = this.props.filesUploadState.filepath
 		}

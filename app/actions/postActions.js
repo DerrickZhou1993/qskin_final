@@ -10,21 +10,21 @@ export const LIST_POSTS_SUCCESSFUL = 'LIST_POSTS_SUCCESSFUL'
 export const LIST_POSTS_FAILED = 'LIST_POSTS_FAILED'
 
 export function create(title, content, userId) {
-    return dispatch => {
-        axios.post(postsApp.baseUrl + postsAPI.createPost,
+	return dispatch => {
+		axios.post(postsApp.baseUrl + postsAPI.createPost,
 			{
 				title: title,
 				content: content,
 				userId,
 			})
-		.then(function(res){
-			if (res && res.data && res.data.result) {
-				dispatch(createSuccess())
-			}
-		}).catch(function(err) {
-			dispatch(createFail(err))
-		})
-    }
+			.then(function (res) {
+				if (res && res.data && res.data.result) {
+					dispatch(createSuccess())
+				}
+			}).catch(function (err) {
+				dispatch(createFail(err))
+			})
+	}
 }
 
 function createSuccess() {
@@ -40,16 +40,16 @@ function createFail(error) {
 }
 
 export function uploadFiles(files) {
-    return dispatch => {
-        axios.post(postsApp.baseUrl + postsAPI.uploadPhotos, files)
-		.then(function(res){
-			if (res && res.data && res.data.result) {
-				dispatch(uploadSuccess(res.data.filepath))
-			}
-		}).catch(function(err) {
-			dispatch(uploadFail(err))
-		})
-    }
+	return dispatch => {
+		axios.post(postsApp.baseUrl + postsAPI.uploadPhotos, files)
+			.then(function (res) {
+				if (res && res.data && res.data.result) {
+					dispatch(uploadSuccess(res.data.filepath))
+				}
+			}).catch(function (err) {
+				dispatch(uploadFail(err))
+			})
+	}
 }
 
 function uploadSuccess(filepath) {
@@ -66,22 +66,19 @@ function uploadFail(error) {
 }
 
 export function listposts() {
-    return dispatch => {
-        axios.get(postsApp.baseUrl + postsAPI.listposts)
-		.then(function(res){
-			if (res && res.data ) {
-				console.log(res.data.posts)
-				console.log("actionok")
-				dispatch(listSuccess(res.data.posts))
-			}
-		}).catch(function(err) {
-			dispatch(listFail(err))
-		})
-    }
+	return dispatch => {
+		axios.get(postsApp.baseUrl + postsAPI.listposts)
+			.then(function (res) {
+				if (res && res.data) {
+					dispatch(listSuccess(res.data.posts))
+				}
+			}).catch(function (err) {
+				dispatch(listFail(err))
+			})
+	}
 }
 
 function listSuccess(posts) {
-	console.log("inlistsuccess" + posts + "out")
 	return {
 		type: LIST_POSTS_SUCCESSFUL,
 		posts: posts,

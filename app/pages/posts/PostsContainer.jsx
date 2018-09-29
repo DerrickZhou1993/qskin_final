@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CreatePost from './CreatePost'
-import { uploadFiles } from '../../actions/postActions'
+import { uploadFiles, createPost } from '../../actions/postActions'
 
 class PostsContainer extends Component {
 	render() {
@@ -11,6 +11,7 @@ class PostsContainer extends Component {
 					userSigninState = {this.props.userSigninState}
 					uploadFilesHandler = {this.uploadFilesHandler.bind(this)}
 					filesUploadState = {this.props.filesUploadState}
+					createPostHandler = {this.createPostHandler.bind(this)}
 				/>
 			</div>
 		)
@@ -18,6 +19,10 @@ class PostsContainer extends Component {
 
 	uploadFilesHandler(files){
 		this.props.dispatch(uploadFiles(files))
+	}
+
+	createPostHandler(title, content, userId, filepath) {
+		this.props.dispatch(createPost(title, content, userId, filepath))
 	}
 }
 

@@ -18,7 +18,7 @@ export function createPost(title, content, userId, filepath) {
 			})
 		.then(function(res){
 			if (res && res.data && res.data.result) {
-				dispatch(createPostSuccess())
+				dispatch(createPostSuccess(title, content, userId, filepath))
 			}
 		}).catch(function(err) {
 			dispatch(createPostFail(err))
@@ -26,9 +26,13 @@ export function createPost(title, content, userId, filepath) {
     }
 }
 
-function createPostSuccess() {
+function createPostSuccess(title, content, userId, filepath) {
 	return {
 		type: CREATE_POST_SUCCESSFUL,
+		title: title,
+		content: content,
+		userId: userId,
+		filepath: filepath,
 	}
 }
 

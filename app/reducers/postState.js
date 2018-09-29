@@ -3,12 +3,20 @@ import { CREATE_POST_SUCCESSFUL, CREATE_POST_FAILED } from '../actions/postActio
 export default (state = {
 	success: false,
 	message: '',
+	title: '',
+	content: '',
+	userId: '',
+	filepath: [],
 }, action) => {
 	switch (action.type) {
 		case CREATE_POST_SUCCESSFUL: {
 			return Object.assign({}, state, {
 				success: true,
 				message: 'Post is created',
+				title: action.title,
+				content: action.content,
+				userId: action.userId,
+				filepath: action.filepath,
 			})
 		}
 		case CREATE_POST_FAILED: {

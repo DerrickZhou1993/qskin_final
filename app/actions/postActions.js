@@ -7,7 +7,7 @@ export const CREATE_POST_FAILED = 'CREATE_POST_FAILED'
 export const UPLOAD_FILES_SUCCESSFUL = 'UPLOAD_FILES_SUCCESSFUL'
 export const UPLOAD_FILES_FAILED = 'UPLOAD_FILES_FAILED'
 
-export function createPost(title, content, userId, filepath) {
+export function create(title, content, userId, filepath) {
     return dispatch => {
         axios.post(postsApp.baseUrl + postsAPI.createPost,
 			{
@@ -18,15 +18,15 @@ export function createPost(title, content, userId, filepath) {
 			})
 		.then(function(res){
 			if (res && res.data && res.data.result) {
-				dispatch(createPostSuccess(title, content, userId, filepath))
+				dispatch(createSuccess(title, content, userId, filepath))
 			}
 		}).catch(function(err) {
-			dispatch(createPostFail(err))
+			dispatch(createFail(err))
 		})
     }
 }
 
-function createPostSuccess(title, content, userId, filepath) {
+function createSuccess(title, content, userId, filepath) {
 	return {
 		type: CREATE_POST_SUCCESSFUL,
 		title: title,
@@ -36,7 +36,7 @@ function createPostSuccess(title, content, userId, filepath) {
 	}
 }
 
-function createPostFail(error) {
+function createFail(error) {
 	return {
 		type: CREATE_POST_FAILED,
 	}

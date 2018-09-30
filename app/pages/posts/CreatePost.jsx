@@ -28,7 +28,7 @@ export default class CreatePost extends Component {
 				return(<div><p>{this.props.postState.message}</p></div>)
 			}
 			return (<div className="container">
-				<div>{this.state.errorMessage}</div>
+				<div><p>{this.state.errorMessage}</p></div>
 				<div className="col-lg-9 col-md-9">
 					<label>Enter the title...</label>
 					<input className="form-control form-field-first"
@@ -79,15 +79,22 @@ export default class CreatePost extends Component {
 
 	handleChangeFiles(event) {
 		event.preventDefault()
-		if (event.target.files.length !== 0) {
+		if (event.target.files.length !== 0 && event.target.files.length <= 9) {
 			this.setState({
 				numberOfFiles: `: ${event.target.files.length} selected`,
+				errorMessage: '',
 			})
 			const files = new FormData()
 			for (let i = 0; i < event.target.files.length; i++) {
 				files.append("files", event.target.files[i])
 			}
 			this.props.uploadFilesHandler(files)
+		}
+		else if (event.target.files.length > 9) {
+			this.setState({
+				numberOfFiles: '',
+				errorMessage: 'Select up to 9 photos only',
+			})
 		}
 	}
 

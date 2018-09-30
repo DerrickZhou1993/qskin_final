@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import CreatePost from './CreatePost'
-import { uploadFiles, createPost } from '../../actions/postActions'
+import { uploadFiles, create } from '../../actions/postActions'
 
 class PostsContainer extends Component {
 	render() {
@@ -23,7 +23,7 @@ class PostsContainer extends Component {
 	}
 
 	createPostHandler(title, content, userId, filepath) {
-		this.props.dispatch(createPost(title, content, userId, filepath))
+		this.props.dispatch(create(title, content, userId, filepath))
 	}
 }
 

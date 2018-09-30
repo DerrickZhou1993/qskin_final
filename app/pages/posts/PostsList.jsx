@@ -1,32 +1,31 @@
 import React, { Component } from 'react'
 import Post from './Post'
-
-import avartar from '../../assets/catAvartar.png'
+import { deepEqual } from '../../utils/deepEqual.js'
 export default class PostsList extends Component {
+	constructor(props) {
+		super(props);
+	}
 
+	shouldComponentUpdate(nextProps, nextState) {
+		return !deepEqual(nextProps.listPostsState.posts, this.props.listPostsState.posts)
+	}
 
-	
 	render() {
-		const posts = [
-			{ id: 1, title: 'Title1', content: 'Content1', userName: 'User1', userAvatar: avartar, time: 'Time1', photos:[], likeCount: 10, replyCount:10},
-			{ id: 2, title: 'Title2', content: 'Content2', userName: 'User2', userAvatar: avartar, time: 'Time2', photos:[], likeCount: 10, replyCount:10},
-			{ id: 3, title: 'Title3', content: 'Content3', userName: 'User3', userAvatar: avartar, time: 'Time3', photos:[], likeCount: 10, replyCount:10}]
-		
-		return (<div className="container">
-
-		{	posts.map( (post, index) => {
-			return <Post 
-				title = {post.title}
-				content = {post.content}
-				userAvatar = {post.userAvatar}
-				userName = {post.userName}
-				time = {post.time}
-				photos = {post.photos}
-				likeCount = {post.likeCount}
-				replyCount = {post.replyCount} />
-
-		})}
-
-		</div>)
+		return (
+			<div className="container">
+				{this.props.listPostsState.posts.map((post, index) => {
+					return <Post
+						key={index}
+						title={post.title}
+						content={post.content}
+						userAvatar={''}
+						userName={post.user.username}
+						time={post.created_at}
+						photos={[]}
+						likeCount={0}
+						replyCount={0}
+					/>
+				})}
+			</div>)
 	}
 }

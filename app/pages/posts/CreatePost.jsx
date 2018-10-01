@@ -25,7 +25,11 @@ export default class CreatePost extends Component {
 	render() {
 		if (this.props.userSigninState.signedIn === true) {
 			if(this.props.postState.success) {
-				return(<div><p>{this.props.postState.message}</p></div>)
+				return(<div className="container">
+					<div className="alert alert-success">
+						<strong>Success!</strong> {this.props.postState.message}
+					</div>
+				</div>)
 			}
 			return (<div className="container">
 				<div><p>{this.state.errorMessage}</p></div>

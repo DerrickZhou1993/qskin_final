@@ -15,15 +15,15 @@ export default class Post extends Component {
 						<h2 className= "col-sm-10"> {this.props.title} </h2>
 						<div className="dropdown col-sm-2">
 							<button className="dropbtn">...</button>
-								<div className="dropdown-content">
-									<a href="#">dropDown 1</a>
-									<a href="#">dropDown 2</a>
-									<a href="#">dropDown 3</a>
-								</div>
+							<div className="dropdown-content">
+							<a href="#">Notification about this post</a>
+							<a href="#">Hide this post</a>
+							<a href="#">Report this post</a>
+							</div>
 						</div>
 					</div>	
-					<div className = "authorInfo col-sm-12">			
-						<img src={this.props.userAvatar} className="user-avatar" /> 
+					<div className = "authorInfo col-sm-12">
+						<img src={this.props.userAvatar} className="user-avatar" />
 						<div className="userName"> {this.props.userName} </div>
 						<div className="userTime"> {this.props.time} </div>	
 					</div>

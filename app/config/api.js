@@ -3,7 +3,7 @@ export const postsAPI = {
 	signin: 'users/signin',
 	signout: 'users/signout',
 	getProfile: 'users',
-	createPost: 'new',
+	createPost: 'posts/new',
 	uploadPhotos: 'files/upload',
 	listposts: 'posts/list',
 }

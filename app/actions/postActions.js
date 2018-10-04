@@ -15,8 +15,8 @@ export function create(title, content, userId, filepath) {
 			{
 				title: title,
 				content: content,
-				userId,
-				filepath: filepath,
+				user_id: userId,
+				files: filepath,
 			})
 		.then(function(res){
 			if (res && res.data && res.data.result) {

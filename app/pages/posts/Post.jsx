@@ -37,28 +37,24 @@ export default class Post extends Component {
 						<div className="userTime"> {this.props.time} </div>
 					</div>
 					<div className="content col-sm-12"> {this.props.content} </div>
-					<div className="col-sm-12"> {this.props.phtotos} </div>
+					<div className="col-sm-12">
+						{
+							this.props.photos.length > 0 ? 
+								<div className="sliderContainer">
+									<Slider {...sliderSettings}>
+										{this.props.photos.map(image => (
+											<div key={image.toString()}>
+												<img src={image} />
+											</div>
+										))}
+									</Slider>
+								</div>
+							: null
+						}
+					</div>
 					<div className="col-sm-8"></div>
 					<div className="interaction col-sm-4">
 						<img src={bookmarkURL} className="reply-btn" />
-					</div>
-					<div> {this.props.content} </div>
-
-					{
-						this.props.photos.length > 0 ? 
-							<div className="sliderContainer">
-								<Slider {...sliderSettings}>
-									{this.props.photos.map(image => (
-										<div key={image.toString()}>
-											<img src={image} />
-										</div>
-									))}
-								</Slider>
-							</div>
-						: null
-					}
-					
-					<div className="interaction">
 						<img src={likeURL} className="like-btn" />
 						<div className="info"> {this.props.likeCount} </div>
 						<img src={commentURL} className="comment-btn" />

@@ -20,15 +20,14 @@ export default class Post extends Component {
 							</div>
 
 		const sliderSettings = {
-			dots: true,
+			dots: false,
 			lazyLoad: true,
 			arrows: true,
-			dotsClass: "slick-dots slick-thumb",
 			infinite: false,
 			speed: 500,
-			slidesToShow: 2,
+			slidesToShow: 3,
 			slidesToScroll: 1,
-			swipeToSlide: true,
+			swipeToSlide: false,
 		}
 
 		return (<div className = "postcontainer">

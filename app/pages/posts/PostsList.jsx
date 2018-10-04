@@ -19,7 +19,7 @@ export default class PostsList extends Component {
 					for (let i = 0; i < post.photoUrls.length; i++) {
 						post.photoUrls[i] = postsApp.baseUrl + post.photoUrls[i].substring(2)
 					}
-
+					
 					return <Post
 						key={index}
 						title={post.title}

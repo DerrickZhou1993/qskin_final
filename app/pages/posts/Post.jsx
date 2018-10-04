@@ -8,17 +8,6 @@ import Slider from "react-slick"
 
 export default class Post extends Component {
 	render() {
-		return (<div className = "postcontainer col-sm-12">
-					<div className = "titleLine">
-						<h2 className= "col-sm-10"> {this.props.title} </h2>
-						<div className="dropdown col-sm-2">
-							<button className="dropbtn">...</button>
-							<div className="dropdown-content">
-							<a href="#">Notification about this post</a>
-							<a href="#">Hide this post</a>
-							<a href="#">Report this post</a>
-							</div>
-
 		const sliderSettings = {
 			dots: false,
 			lazyLoad: true,
@@ -30,15 +19,16 @@ export default class Post extends Component {
 			swipeToSlide: false,
 		}
 
-		return (<div className = "postcontainer">
-					<div className = "titleLine">		
-						<h2> {this.props.title} </h2>
-						<div className="dropdown">
-						<button className="dropbtn">Dropdown</button>
-						<div className="dropdown-content">
-							<a href="#">dropDown 1</a>
-							<a href="#">dropDown 2</a>
-							<a href="#">dropDown 3</a>
+		return (<div className = "postcontainer col-sm-12">
+					<div className = "titleLine">
+						<h2 className= "col-sm-10"> {this.props.title} </h2>
+						<div className="dropdown col-sm-2">
+							<button className="dropbtn">...</button>
+							<div className="dropdown-content">
+							<a href="#">Notification about this post</a>
+							<a href="#">Hide this post</a>
+							<a href="#">Report this post</a>
+							</div>
 						</div>
 					</div>
 					<div className = "authorInfo col-sm-12">
@@ -51,6 +41,7 @@ export default class Post extends Component {
 					<div className="col-sm-8"></div>
 					<div className="interaction col-sm-4">
 						<img src={bookmarkURL} className="reply-btn" />
+					</div>
 					<div> {this.props.content} </div>
 
 					{

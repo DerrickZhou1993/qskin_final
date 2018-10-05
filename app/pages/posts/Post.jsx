@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
 require ('../../stylesheets/post.scss')
-
+import "../../stylesheets/imageSlide.scss"
 import likeURL from '../../assets/icons/Like.png'
 import commentURL from '../../assets/icons/Comment.png'
 import bookmarkURL from '../../assets/icons/Bookmark.png'
-
-
+import Slider from "react-slick"
 
 export default class Post extends Component {
-
 	render() {
+		const sliderSettings = {
+			dots: false,
+			lazyLoad: true,
+			arrows: true,
+			infinite: false,
+			speed: 500,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			swipeToSlide: false,
+		}
+
 		return (<div className = "postcontainer col-sm-12">
 					<div className = "titleLine">
 						<h2 className= "col-sm-10"> {this.props.title} </h2>
@@ -28,7 +37,21 @@ export default class Post extends Component {
 						<div className="userTime"> {this.props.time} </div>
 					</div>
 					<div className="content col-sm-12"> {this.props.content} </div>
-					<div className="col-sm-12"> {this.props.phtotos} </div>
+					<div className="col-sm-12">
+						{
+							this.props.photos.length > 0 ? 
+								<div className="sliderContainer">
+									<Slider {...sliderSettings}>
+										{this.props.photos.map(image => (
+											<div key={image.toString()}>
+												<img src={image} />
+											</div>
+										))}
+									</Slider>
+								</div>
+							: null
+						}
+					</div>
 					<div className="col-sm-8"></div>
 					<div className="interaction col-sm-4">
 						<img src={bookmarkURL} className="reply-btn" />

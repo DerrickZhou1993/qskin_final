@@ -5,6 +5,7 @@ import likeURL from '../../assets/icons/Like.png'
 import commentURL from '../../assets/icons/Comment.png'
 import bookmarkURL from '../../assets/icons/Bookmark.png'
 import Slider from "react-slick"
+import { Link } from 'react-router'
 
 export default class Post extends Component {
 	render() {
@@ -25,9 +26,9 @@ export default class Post extends Component {
 						<div className="dropdown col-sm-2">
 							<button className="dropbtn">...</button>
 							<div className="dropdown-content">
-							<a href="#">Notification about this post</a>
-							<a href="#">Hide this post</a>
-							<a href="#">Report this post</a>
+							<Link>Notification about this post</Link>
+							<Link>Hide this post</Link>
+							<Link>Report this post</Link>
 							</div>
 						</div>
 					</div>

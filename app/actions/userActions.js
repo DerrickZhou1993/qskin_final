@@ -4,6 +4,7 @@ import { postsAPI } from '../config/api'
 import { getSessionValues } from '../utils/loginHelpers'
 import { createCookie, eraseCookie, 
 		USER_ID_COOKIE, EMAIL_COOKIE, SESSION_ID_COOKIE } from '../utils/cookieHelpers'
+import { readCookie } from './../utils/cookieHelpers'
 
 export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS'
 export const SIGNUP_ERROR = 'SIGNUP_ERROR'
@@ -29,15 +30,39 @@ export function signin(email, password) {
 }
 
 function signinSuccess(email, userId, sessionId) {
-	createCookie(EMAIL_COOKIE, email)
-	createCookie(USER_ID_COOKIE, userId)
-	createCookie(SESSION_ID_COOKIE, sessionId)
+	let user_email = createCookie(EMAIL_COOKIE, email)
+	let user_id = createCookie(USER_ID_COOKIE, userId)
+	let session_id = createCookie(SESSION_ID_COOKIE, sessionId)
 	return {
 		type: SIGNIN_SUCCESS,
+		userInfo: {
+			user_email,
+			user_id,
+			session_id,
+		},
 	}
 }
 
 function signinError(error) {
+	return {
+		type: SIGNIN_ERROR,
+	}
+}
+
+export function checkSignin() {
+	return dispatch => {
+		dispatch(checkSigninSuccess())
+	}
+}
+
+function checkSigninSuccess() {
+	if (readCookie(USER_ID_COOKIE) 
+		&& readCookie(EMAIL_COOKIE) 
+		&& readCookie(SESSION_ID_COOKIE)) {
+		return {
+			type: SIGNIN_SUCCESS,
+		}
+	} 
 	return {
 		type: SIGNIN_ERROR,
 	}

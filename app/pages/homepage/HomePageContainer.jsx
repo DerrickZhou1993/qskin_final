@@ -20,7 +20,9 @@ class HomePageContainer extends Component {
 					uploadFilesHandler={this.uploadFilesHandler.bind(this)}
 					filesUploadState={this.props.filesUploadState}
 				/>
-				<PostsList listPostsState={this.props.listPostsState} />
+				<PostsList 
+					userSigninState={this.props.userSigninState}
+					listPostsState={this.props.listPostsState} />
 			</div>
 		)
 	}

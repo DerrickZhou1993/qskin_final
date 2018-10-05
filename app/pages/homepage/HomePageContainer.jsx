@@ -22,7 +22,9 @@ class HomePageContainer extends Component {
 					createPostHandler = {this.createPostHandler.bind(this)}
 					postState = {this.props.postState}
 				/>
-				<PostsList listPostsState={this.props.listPostsState} />
+				<PostsList 
+					userSigninState={this.props.userSigninState}
+					listPostsState={this.props.listPostsState} />
 			</div>
 		)
 	}

@@ -5,14 +5,14 @@ import HomeButton from './HomeButton';
 import "../../stylesheets/headerContainer.scss"
 
 class HeaderContainer extends Component {
-
 	render() {
 		return (<div className="container">
-			<UserProfileButton userSigninState = {this.props.userSigninState}/>
-			<HomeButton/>
+			<UserProfileButton userSigninState={this.props.userSigninState} />
+			<HomeButton userSigninState={this.props.userSigninState} />
 		</div>)
 	}
 }
+
 function select(state) {
 	return {
 		userSigninState: state.userSigninState,

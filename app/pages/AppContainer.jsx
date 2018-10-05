@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-
 import HeaderContainer from './common/HeaderContainer'
+import { checkSignin } from './../actions/userActions'
 
-export default class AppContainer extends Component {
+class AppContainer extends Component {
 
 	componentWillMount() {
-		//todo: checks user signin status
+		this.props.dispatch(checkSignin())
 	}
 
 	render() {
@@ -17,7 +18,7 @@ export default class AppContainer extends Component {
 				<ReactCSSTransitionGroup
 					transitionName="overall"
 					transitionEnterTimeout={1000}
-					transitionLeaveTimeout={1000}
+					transitionLeaveTimeout={100}
 				>
 					{React.cloneElement(this.props.children, {
 						key: pathname,
@@ -27,3 +28,5 @@ export default class AppContainer extends Component {
 		)
 	}
 }
+
+export default connect()(AppContainer)

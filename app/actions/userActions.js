@@ -30,15 +30,16 @@ export function signin(email, password) {
 }
 
 function signinSuccess(email, userId, sessionId) {
-	let user_email = createCookie(EMAIL_COOKIE, email)
-	let user_id = createCookie(USER_ID_COOKIE, userId)
-	let session_id = createCookie(SESSION_ID_COOKIE, sessionId)
+	createCookie(EMAIL_COOKIE, email)
+	createCookie(USER_ID_COOKIE, userId)
+	createCookie(SESSION_ID_COOKIE, sessionId)
+
 	return {
 		type: SIGNIN_SUCCESS,
-		userInfo: {
-			user_email,
-			user_id,
-			session_id,
+		payload: {
+			email,
+			userId,
+			sessionId,
 		},
 	}
 }
@@ -56,11 +57,18 @@ export function checkSignin() {
 }
 
 function checkSigninSuccess() {
-	if (readCookie(USER_ID_COOKIE) 
-		&& readCookie(EMAIL_COOKIE) 
-		&& readCookie(SESSION_ID_COOKIE)) {
+	let email = readCookie(EMAIL_COOKIE)
+	let userId = readCookie(USER_ID_COOKIE)
+	let sessionId = readCookie(SESSION_ID_COOKIE)
+
+	if (email && userId && sessionId) {
 		return {
 			type: SIGNIN_SUCCESS,
+			payload: {
+				email,
+				userId,
+				sessionId,
+			},
 		}
 	} 
 	return {

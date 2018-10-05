@@ -17,7 +17,7 @@ export default class AppContainer extends Component {
 				<ReactCSSTransitionGroup
 					transitionName="overall"
 					transitionEnterTimeout={1000}
-					transitionLeaveTimeout={1000}
+					transitionLeaveTimeout={100}
 				>
 					{React.cloneElement(this.props.children, {
 						key: pathname,

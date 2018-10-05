@@ -11,9 +11,9 @@ export default (state = {
 				signinMsg: 'You have signed in successfully.',
 				signedIn: true,
 				userInfo: {
-					email: action.payload.email,
-					userId: action.payload.userId,
-					sessionId: action.payload.sessionId,
+					email: action.user.email,
+					userId: action.user.userId,
+					sessionId: action.user.sessionId,
 				},
 			})
 		}

@@ -12,6 +12,7 @@ class HomePageContainer extends Component {
 		this.props.dispatch(listposts())
 	}
 	render() {
+		console.log(this.props.userSigninState)
 		return (
 			<div>
 				<Banner />

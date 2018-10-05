@@ -36,7 +36,7 @@ function signinSuccess(email, userId, sessionId) {
 
 	return {
 		type: SIGNIN_SUCCESS,
-		payload: {
+		user: {
 			email,
 			userId,
 			sessionId,
@@ -52,11 +52,11 @@ function signinError(error) {
 
 export function checkSignin() {
 	return dispatch => {
-		dispatch(checkSigninSuccess())
+		dispatch(isSignedIn())
 	}
 }
 
-function checkSigninSuccess() {
+function isSignedIn() {
 	let email = readCookie(EMAIL_COOKIE)
 	let userId = readCookie(USER_ID_COOKIE)
 	let sessionId = readCookie(SESSION_ID_COOKIE)
@@ -64,7 +64,7 @@ function checkSigninSuccess() {
 	if (email && userId && sessionId) {
 		return {
 			type: SIGNIN_SUCCESS,
-			payload: {
+			user: {
 				email,
 				userId,
 				sessionId,

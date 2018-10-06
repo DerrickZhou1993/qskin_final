@@ -11,40 +11,37 @@ export default class CreatePost extends Component {
 	render() {
 		if (this.props.userSigninState.signedIn === true) {
 			return (<div className="container">
-				<div className="col-lg-9 col-md-9">
-					<label>Enter the title...</label>
-					<input className="form-control form-field-first"
-						aria-label="title"
-						placeholder="title"
-						type="text"
-					/>
-				</div>
-				<div className="col-lg-9 col-md-9">
-					<label>Enter the subject content...</label>
-					<input className="form-control form-field-first"
-						aria-label="content"
-						placeholder="content"
-						type="textarea"
-						id="post-content-input"
-					/>
-				</div>
-				<div className="col-lg-9 col-md-9">
-					<p id="end-page">
-						<label className="btn" id="picture-button" >
-							<input type="file"
-								accept="image/jpg, image/png, image/jpeg"
-								multiple
-								onChange={this.handleChangeFiles.bind(this)}
+						<div className="col-lg-9 col-md-9">
+							<input className="form-control form-field-first"
+								placeholder="Enter the title..."
+								type="text"
+								id="post-title-input"
 							/>
-							<img src={picture} className="add-picture-btn" />
-							Add photos
-						</label>
-						<button className="btn" id="send-post">
-							<img src={send} className="send-btn" />
-						</button>
-					</p>
-				</div>
-			</div>)
+						</div>
+						<div className="col-lg-9 col-md-9">
+							<input className="form-control form-field-first"
+								placeholder="Enter the subject content..."
+								type="textarea"
+								id="post-content-input"
+							/>
+						</div>
+						<div className="col-lg-9 col-md-9">
+							<p id="end-page">
+								<label className="btn" id="picture-button" >
+									<input type="file"
+										accept="image/jpg, image/png, image/jpeg"
+										multiple
+										onChange={this.handleChangeFiles.bind(this)}
+									/>
+									<img src={picture} className="add-picture-btn" />
+									Add photos
+								</label>
+								<button className="btn" id="send-post">
+									<img src={send} className="send-btn" />
+								</button>
+							</p>
+						</div>
+					</div>)
 		}
 		return (
 			<div>

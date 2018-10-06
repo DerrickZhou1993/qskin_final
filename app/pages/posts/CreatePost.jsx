@@ -32,45 +32,39 @@ export default class CreatePost extends Component {
 				</div>)
 			}
 			return (<div className="container">
-				<div><p>{this.state.errorMessage}</p></div>
-				<div className="col-lg-9 col-md-9">
-					<label>Enter the title...</label>
-					<input className="form-control form-field-first"
-						aria-label="title"
-						placeholder="title"
-						type="text"
-						onChange={this.handleChangeTitle.bind(this)}
-					/>
-				</div>
-				<div className="col-lg-9 col-md-9">
-					<label>Enter the subject content...</label>
-					<input className="form-control form-field-first"
-						aria-label="content"
-						placeholder="content"
-						type="textarea"
-						id="post-content-input"
-						onChange={this.handleChangeContent.bind(this)}
-					/>
-				</div>
-				<div className="col-lg-9 col-md-9">
-					<p id="end-page">
-						<label className="btn" id="picture-button" >
-							<input type="file"
-								accept="image/jpg, image/png, image/jpeg"
-								multiple
-								onChange={this.handleChangeFiles.bind(this)}
+						<div className="col-lg-9 col-md-9">
+							<input className="form-control form-field-first"
+								placeholder="Enter the title..."
+								type="text"
+								id="post-title-input"
+								onChange={this.handleChangeTitle.bind(this)}
 							/>
-							<img src={picture} className="add-picture-btn" />
-							Add photos {this.state.numberOfFiles}
-						</label>
-						<button className="btn" id="send-post"
-							disabled={!(this.state.validTitle && this.state.validContent)}
-							onClick={this.handleClickSend.bind(this)} >
-							<img src={send} className="send-btn" />
-						</button>
-					</p>
-				</div>
-			</div>)
+						</div>
+						<div className="col-lg-9 col-md-9">
+							<input className="form-control form-field-first"
+								placeholder="Enter the subject content..."
+								type="textarea"
+								id="post-content-input"
+								onChange={this.handleChangeContent.bind(this)}
+							/>
+						</div>
+						<div className="col-lg-9 col-md-9">
+							<p id="end-page">
+								<label className="btn" id="picture-button" >
+									<input type="file"
+										accept="image/jpg, image/png, image/jpeg"
+										multiple
+										onChange={this.handleChangeFiles.bind(this)}
+									/>
+									<img src={picture} className="add-picture-btn" />
+									Add photos
+								</label>
+								<button className="btn" id="send-post">
+									<img src={send} className="send-btn" />
+								</button>
+							</p>
+						</div>
+					</div>)
 		}
 		return (
 			<div>

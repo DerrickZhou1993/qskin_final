@@ -32,6 +32,7 @@ export default class CreatePost extends Component {
 				</div>)
 			}
 			return (<div className="container">
+						<div><p>{this.state.errorMessage}</p></div>
 						<div className="col-lg-9 col-md-9">
 							<input className="form-control form-field-first"
 								placeholder="Enter the title..."
@@ -57,9 +58,11 @@ export default class CreatePost extends Component {
 										onChange={this.handleChangeFiles.bind(this)}
 									/>
 									<img src={picture} className="add-picture-btn" />
-									Add photos
+									Add photos {this.state.numberOfFiles}
 								</label>
-								<button className="btn" id="send-post">
+								<button className="btn" id="send-post"
+									disabled={!(this.state.validTitle && this.state.validContent)}
+									onClick={this.handleClickSend.bind(this)} >
 									<img src={send} className="send-btn" />
 								</button>
 							</p>

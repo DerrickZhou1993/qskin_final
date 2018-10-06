@@ -23,7 +23,7 @@ export function create(title, content, userId, filepath) {
 			})
 		.then(function(res){
 			if (res && res.data && res.data.result) {
-				dispatch(createSuccess(title, content, userId, filepath))
+				dispatch(createSuccess())
 			}
 		}).catch(function(err) {
 			dispatch(createFail(err))
@@ -31,13 +31,9 @@ export function create(title, content, userId, filepath) {
     }
 }
 
-function createSuccess(title, content, userId, filepath) {
+function createSuccess() {
 	return {
 		type: CREATE_POST_SUCCESSFUL,
-		title: title,
-		content: content,
-		userId: userId,
-		filepath: filepath,
 	}
 }
 

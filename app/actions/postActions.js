@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { postsApp } from '../config/config'
 import { postsAPI } from '../config/api'
+import { readCookie, USER_ID_COOKIE } from '../utils/cookieHelpers'
 
 export const CREATE_POST_SUCCESSFUL = 'CREATE_POST_SUCCESSFUL'
 export const CREATE_POST_FAILED = 'CREATE_POST_FAILED'
@@ -17,6 +18,8 @@ export function create(title, content, userId, filepath) {
 				content: content,
 				user_id: userId,
 				files: filepath,
+			}, {
+				headers: {user_id: readCookie(USER_ID_COOKIE)},
 			})
 		.then(function(res){
 			if (res && res.data && res.data.result) {

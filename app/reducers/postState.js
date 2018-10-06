@@ -13,10 +13,6 @@ export default (state = {
 			return Object.assign({}, state, {
 				success: true,
 				message: 'Post is created',
-				title: action.title,
-				content: action.content,
-				userId: action.userId,
-				filepath: action.filepath,
 			})
 		}
 		case CREATE_POST_FAILED: {

@@ -10,22 +10,22 @@ export default class CreatePost extends Component {
 
 	render() {
 		if (this.props.userSigninState.signedIn === true) {
-			return (<div className="container">
-						<div className="col-lg-9 col-md-9">
+			return (<div className="createpostcontainer col-sm-12">
+						<div className="titleLine col-sm-10">
 							<input className="form-control form-field-first"
 								placeholder="Enter the title..."
 								type="text"
 								id="post-title-input"
 							/>
 						</div>
-						<div className="col-lg-9 col-md-9">
+						<div className="contentLine col-sm-10">
 							<input className="form-control form-field-first"
 								placeholder="Enter the subject content..."
 								type="textarea"
 								id="post-content-input"
 							/>
 						</div>
-						<div className="col-lg-9 col-md-9">
+						<div className="addPhotosLine col-sm-10">
 							<p id="end-page">
 								<label className="btn" id="picture-button" >
 									<input type="file"

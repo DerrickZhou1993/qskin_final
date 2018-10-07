@@ -23,6 +23,7 @@ export default class Post extends Component {
 		return (<div className = "postcontainer col-sm-12">
 					<div className = "titleLine">
 						<h2 className= "col-sm-10"> {this.props.title} </h2>
+						
 						<div className="dropdown col-sm-2">
 							<button className="dropbtn">...</button>
 							<div className="dropdown-content">
@@ -32,10 +33,10 @@ export default class Post extends Component {
 							</div>
 						</div>
 					</div>
+					<div className="userTime col-sm-10"> {this.props.time} </div>
 					<div className = "authorInfo col-sm-12">
 						<img src={this.props.userAvatar} className="user-avatar" />
 						<div className="userName"> {this.props.userName} </div>
-						<div className="userTime"> {this.props.time} </div>
 					</div>
 					<div className="content col-sm-12"> {this.props.content} </div>
 					<div className="col-sm-12">

@@ -11,8 +11,8 @@ export const LIST_POSTS_SUCCESSFUL = 'LIST_POSTS_SUCCESSFUL'
 export const LIST_POSTS_FAILED = 'LIST_POSTS_FAILED'
 
 export function create(title, content, userId, filepath) {
-    return dispatch => {
-        axios.post(postsApp.baseUrl + postsAPI.createPost,
+	return dispatch => {
+		axios.post(postsApp.baseUrl + postsAPI.createPost,
 			{
 				title: title,
 				content: content,

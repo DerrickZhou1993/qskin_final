@@ -10,23 +10,23 @@ export default class CreatePost extends Component {
 
 	render() {
 		if (this.props.userSigninState.signedIn === true) {
-			return (<div className="container">
-						<div className="title-line">
+			return (<div className="createpostcontainer">
+						<div>
 							<input className="form-control form-field-first"
 								placeholder="Enter the title..."
 								type="text"
 								id="post-title-input"
 							/>
 						</div>
-						<div className="content-line">
+						<div>
 							<input className="form-control form-field-first"
 								placeholder="Enter the subject content..."
 								type="textarea"
 								id="post-content-input"
 							/>
 						</div>
-						<div className="add-photos-line">
-							<p id="end-page">
+						<div>
+							<div id="end-page">
 								<label className="btn" id="picture-button" >
 									<input type="file"
 										accept="image/jpg, image/png, image/jpeg"
@@ -39,7 +39,7 @@ export default class CreatePost extends Component {
 								<button className="btn" id="send-post">
 									<img src={send} className="send-btn" />
 								</button>
-							</p>
+							</div>
 						</div>
 					</div>)
 		}

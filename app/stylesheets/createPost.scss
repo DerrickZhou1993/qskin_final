@@ -50,23 +50,10 @@ input[type=file] {
     font-weight: bold;
 }
 
-.create-post-container {
+.createpostcontainer {
     border: 1px solid #eee;
-    margin: 16px auto;
-    width:100%;
 }
 
-.create-post-container .title-line {
+.createpostcontainer .titleLine {
     display: flex;
-    margin-left:55px;
 }
-
-.create-post-container .content-line {
-    display: flex;
-    margin-left:55px;
-}
-
-.create-post-container .add-photos-line {
-    margin-left:55px;
-}
-

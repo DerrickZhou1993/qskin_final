@@ -1,47 +1,46 @@
-.post-container {
+.postcontainer {
     border: 1px solid #eee;
-    width:100%;
+    margin: 16px auto;
 }
 
-.post-container h2 {
+.postcontainer h2 {
     font-size: 2rem;
     font-weight: bold;
     color: red;
 }
 
-.post-container .title-line {
+.postcontainer .titleLine {
     display: flex;
+    margin-left:55px;
 }
 
-.post-container .user-time {
+.postcontainer .userTime {
     display: flex;
+    margin-left:55px;
+    position:'relative';
     margin-top: -20px;
 }
 
-.post-container .author-info {
+.postcontainer .authorInfo {
     display: flex;
+    margin-left: 50px;
     margin-top: 10px;
 }
 
-.user-avatar {
-    height: 70px;
-    width: 70px;
-}
-
-.author-info .user-name{
+.authorInfo .userName{
     display: flex;
     font-weight: bold;
     margin-left: 5px;
     color:#28a7f1;
-    margin-top:25px;
 }
-
 .content{
+    margin-left: 55px;
     margin-top: -10px;
     margin-bottom: 10px;
     font-size: 2rem;
+
 }
-.post-container .interaction {
+.postcontainer .interaction {
     display: flex;
     margin-bottom: 20px;  
     padding-left:75px;
@@ -83,21 +82,21 @@
 }
 
 .interaction .reply-btn{
-    width:26px;
-    height:24px;
+    width:15px;
+    height:15px;
     margin-top:3px;
 }
 
 .interaction .comment-btn{
-    width:20px;
-    height:25px;
+    width:15px;
+    height:15px;
     margin-left:8px;
     margin-top:3px
 }
 
 .interaction .like-btn{
-    width:26px;
-    height:26px;
+    width:15px;
+    height:15px;
     margin-left:10px;
 }
 

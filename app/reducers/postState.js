@@ -3,10 +3,6 @@ import { CREATE_POST_SUCCESSFUL, CREATE_POST_FAILED } from '../actions/postActio
 export default (state = {
 	success: false,
 	message: '',
-	title: '',
-	content: '',
-	userId: '',
-	filepath: [],
 }, action) => {
 	switch (action.type) {
 		case CREATE_POST_SUCCESSFUL: {

@@ -1,6 +1,5 @@
 .post-container {
     border: 1px solid #eee;
-    margin: 16px auto;
     width:100%;
 }
 
@@ -12,27 +11,21 @@
 
 .post-container .title-line {
     display: flex;
-    margin-left:55px;
 }
 
 .post-container .user-time {
     display: flex;
-    margin-left:55px;
-    position:'relative';
     margin-top: -20px;
 }
 
 .post-container .author-info {
     display: flex;
-    margin-left: 50px;
     margin-top: 10px;
 }
 
 .user-avatar {
     height: 70px;
     width: 70px;
-    margin-left:5px;
-    position:'relative';
 }
 
 .author-info .user-name{
@@ -42,12 +35,11 @@
     color:#28a7f1;
     margin-top:25px;
 }
+
 .content{
-    margin-left: 55px;
     margin-top: -10px;
     margin-bottom: 10px;
     font-size: 2rem;
-
 }
 .post-container .interaction {
     display: flex;

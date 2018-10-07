@@ -20,7 +20,7 @@ export default class Post extends Component {
 			swipeToSlide: false,
 		}
 
-		return (<div className = "post-container col-sm-12">
+		return (<div className = "post-container">
 					<div className = "title-line">
 						<h2 className= "col-sm-10"> {this.props.title} </h2>
 						

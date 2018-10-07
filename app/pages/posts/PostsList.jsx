@@ -15,7 +15,7 @@ export default class PostsList extends Component {
 	render() {
 		if (this.props.userSigninState.signedIn) {
 			return (
-				<div className="container">
+				<div>
 					{this.props.listPostsState.posts.map((post, index) => {
 						for (let i = 0; i < post.photoUrls.length; i++) {
 							post.photoUrls[i] = postsApp.baseUrl + post.photoUrls[i].substring(2)
@@ -33,6 +33,17 @@ export default class PostsList extends Component {
 							replyCount={0}
 						/>
 					})}
+					<Post
+							key={1}
+							title={"This is titile"}
+							content={"This is content"}
+							userAvatar={'Avatar'}
+							userName={"username"}
+							time={'Time1'}
+							photos={''}
+							likeCount={0}
+							replyCount={0}
+					/>
 				</div>)
 		}
 		return (<div></div>)

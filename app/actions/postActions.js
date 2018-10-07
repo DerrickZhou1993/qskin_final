@@ -21,12 +21,12 @@ export function create(title, content, userId, filepath) {
 			}, {
 				headers: {user_id: readCookie(USER_ID_COOKIE)},
 			})
-			.then(function(res){
+			.then(function (res) {
 				if (res && res.data && res.data.result) {
 					dispatch(createSuccess())
 					dispatch(listposts())
 				}
-			}).catch(function(err) {
+			}).catch(function (err) {
 				dispatch(createFail(err))
 			})
 	}

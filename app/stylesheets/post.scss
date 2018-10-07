@@ -1,25 +1,29 @@
-.post-container {
+.postcontainer {
     border: 1px solid #eee;
     margin: 16px auto;
 }
 
-.post-container h2 {
+.postcontainer h2 {
     font-size: 2rem;
     font-weight: bold;
     color: red;
 }
 
-.post-container .title-line {
+.postcontainer .titleLine {
     display: flex;
+    margin-left:55px;
 }
 
-.post-container .user-time {
+.postcontainer .userTime {
     display: flex;
+    margin-left:55px;
+    position:'relative';
     margin-top: -20px;
 }
 
-.post-container .author-info {
+.postcontainer .authorInfo {
     display: flex;
+    margin-left: 50px;
     margin-top: 10px;
 }
 
@@ -29,13 +33,14 @@
     margin-left: 5px;
     color:#28a7f1;
 }
-
 .content{
+    margin-left: 55px;
     margin-top: -10px;
     margin-bottom: 10px;
     font-size: 2rem;
+
 }
-.post-container .interaction {
+.postcontainer .interaction {
     display: flex;
     margin-bottom: 20px;  
     padding-left:75px;

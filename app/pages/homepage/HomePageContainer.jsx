@@ -15,14 +15,16 @@ class HomePageContainer extends Component {
 		return (
 			<div>
 				<Banner />
-				<CreatePost
-					userSigninState={this.props.userSigninState}
-					uploadFilesHandler={this.uploadFilesHandler.bind(this)}
-					filesUploadState={this.props.filesUploadState}
-				/>
-				<PostsList 
-					userSigninState={this.props.userSigninState}
-					listPostsState={this.props.listPostsState} />
+				<div className="container">
+					<CreatePost
+						userSigninState={this.props.userSigninState}
+						uploadFilesHandler={this.uploadFilesHandler.bind(this)}
+						filesUploadState={this.props.filesUploadState}
+					/>
+					<PostsList
+						userSigninState={this.props.userSigninState}
+						listPostsState={this.props.listPostsState} />
+				</div>
 			</div>
 		)
 	}

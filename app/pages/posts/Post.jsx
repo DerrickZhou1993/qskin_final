@@ -54,6 +54,7 @@ export default class Post extends Component {
 							: null
 						}
 					</div>
+					<div>
 					<div className="col-sm-8"></div>
 					<div className="interaction col-sm-4">
 						<img src={bookmarkURL} className="reply-btn" />
@@ -61,7 +62,7 @@ export default class Post extends Component {
 						<div className="info"> {this.props.likeCount} </div>
 						<img src={commentURL} className="comment-btn" />
 						<div className="info"> {this.props.replyCount} </div>
-					</div>
+					</div></div>
 				</div>)
 	}
 }

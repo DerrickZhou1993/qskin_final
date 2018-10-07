@@ -24,6 +24,7 @@ export function create(title, content, userId, filepath) {
 		.then(function(res){
 			if (res && res.data && res.data.result) {
 				dispatch(createSuccess())
+				dispatch(listposts())
 			}
 		}).catch(function(err) {
 			dispatch(createFail(err))

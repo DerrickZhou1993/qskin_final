@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { postsApp } from '../config/config'
 import { postsAPI } from '../config/api'
+import { readCookie, USER_ID_COOKIE } from '../utils/cookieHelpers'
 
 export const CREATE_POST_SUCCESSFUL = 'CREATE_POST_SUCCESSFUL'
 export const CREATE_POST_FAILED = 'CREATE_POST_FAILED'
@@ -9,17 +10,21 @@ export const UPLOAD_FILES_FAILED = 'UPLOAD_FILES_FAILED'
 export const LIST_POSTS_SUCCESSFUL = 'LIST_POSTS_SUCCESSFUL'
 export const LIST_POSTS_FAILED = 'LIST_POSTS_FAILED'
 
-export function create(title, content, userId) {
+export function create(title, content, userId, filepath) {
 	return dispatch => {
 		axios.post(postsApp.baseUrl + postsAPI.createPost,
 			{
 				title: title,
 				content: content,
-				userId,
+				user_id: userId,
+				files: filepath,
+			}, {
+				headers: {user_id: readCookie(USER_ID_COOKIE)},
 			})
 			.then(function (res) {
 				if (res && res.data && res.data.result) {
 					dispatch(createSuccess())
+					dispatch(listposts())
 				}
 			}).catch(function (err) {
 				dispatch(createFail(err))

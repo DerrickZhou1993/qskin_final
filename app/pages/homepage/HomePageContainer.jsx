@@ -3,7 +3,7 @@ import Banner from './Banner'
 import CreatePost from '../posts/CreatePost'
 import PostsList from '../posts/PostsList'
 import { connect } from 'react-redux'
-import { uploadFiles } from '../../actions/postActions'
+import { uploadFiles, create } from '../../actions/postActions'
 import { listposts } from '../../actions/postActions'
 
 class HomePageContainer extends Component {
@@ -16,9 +16,11 @@ class HomePageContainer extends Component {
 			<div>
 				<Banner />
 				<CreatePost
-					userSigninState={this.props.userSigninState}
-					uploadFilesHandler={this.uploadFilesHandler.bind(this)}
-					filesUploadState={this.props.filesUploadState}
+					userSigninState = {this.props.userSigninState}
+					uploadFilesHandler = {this.uploadFilesHandler.bind(this)}
+					filesUploadState = {this.props.filesUploadState}
+					createPostHandler = {this.createPostHandler.bind(this)}
+					postState = {this.props.postState}
 				/>
 				<PostsList 
 					userSigninState={this.props.userSigninState}
@@ -30,12 +32,17 @@ class HomePageContainer extends Component {
 	uploadFilesHandler(files) {
 		this.props.dispatch(uploadFiles(files))
 	}
+
+	createPostHandler(title, content, userId, filepath) {
+		this.props.dispatch(create(title, content, userId, filepath))
+	}
 }
 
 function select(state) {
 	return {
 		userSigninState: state.userSigninState,
 		filesUploadState: state.filesUploadState,
+		postState: state.postState,
 		listPostsState: state.listPostsState,
 	}
 }

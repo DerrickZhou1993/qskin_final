@@ -24,16 +24,8 @@ export default class CreatePost extends Component {
 
 	render() {
 		if (this.props.userSigninState.signedIn === true) {
-			if(this.props.postState.success) {
-				return(<div className="container">
-					<div className="alert alert-success">
-						<strong>Success!</strong> {this.props.postState.message}
-					</div>
-				</div>)
-			}
-			return (<div className="container">
-						<div><p>{this.state.errorMessage}</p></div>
-						<div className="col-lg-9 col-md-9">
+			return (<div className="createpostcontainer">
+						<div>
 							<input className="form-control form-field-first"
 								placeholder="Enter the title..."
 								type="text"
@@ -41,7 +33,7 @@ export default class CreatePost extends Component {
 								onChange={this.handleChangeTitle.bind(this)}
 							/>
 						</div>
-						<div className="col-lg-9 col-md-9">
+						<div>
 							<input className="form-control form-field-first"
 								placeholder="Enter the subject content..."
 								type="textarea"
@@ -49,8 +41,8 @@ export default class CreatePost extends Component {
 								onChange={this.handleChangeContent.bind(this)}
 							/>
 						</div>
-						<div className="col-lg-9 col-md-9">
-							<p id="end-page">
+						<div>
+							<div id="end-page">
 								<label className="btn" id="picture-button" >
 									<input type="file"
 										accept="image/jpg, image/png, image/jpeg"
@@ -65,7 +57,7 @@ export default class CreatePost extends Component {
 									onClick={this.handleClickSend.bind(this)} >
 									<img src={send} className="send-btn" />
 								</button>
-							</p>
+							</div>
 						</div>
 					</div>)
 		}
